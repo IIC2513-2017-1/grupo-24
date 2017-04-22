@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#main'
   resources :projects
   resources :categories
   resources :users
