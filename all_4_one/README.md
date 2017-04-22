@@ -1,27 +1,16 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+# All for one
 
 #### Database creation
 * Open postgres and create a role:
  * CREATE ROLE all_4_one WITH CREATEDB LOGIN PASSWORD 'all4onepassword';
 * Run the rake db:setup
 
-* Database initialization
+#### Deployment
+First, be sure you don't have migrations pending:
+* rake db:migrate
 
-* How to run the test suite
+Then, ensure you have installed all the gems required
+* bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Finally...
+* rails server
