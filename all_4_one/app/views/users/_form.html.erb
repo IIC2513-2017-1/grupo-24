@@ -1,4 +1,4 @@
-<%= form_for(user) do |f| %>
+<%= simple_form_for user do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,31 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
+    <%= f.input :username, label: 'Nombre de usuario' %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.input :email, label: 'Correo electrónico' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.input :password, type: 'password', label: 'Contraseña' %>
   </div>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name, label: 'Nombres' %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.input :last_name, label: 'Apellidos' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.input :admin, label: '¿Es administrador?' %>
   </div>
+
+  <%= f.button :submit, 'Guardar', class: "btn" %>
+
 <% end %>

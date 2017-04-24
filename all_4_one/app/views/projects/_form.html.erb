@@ -1,4 +1,4 @@
-<%= form_for(project) do |f| %>
+<%= simple_form_for(project) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,33 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <%# TODO: add current user %>
+  <%= f.hidden_field :user_id, value: 0 %>
 
   <div class="field">
-    <%= f.label :goal %>
-    <%= f.text_field :goal %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.input :title, label: 'Título' %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.input :description, label: 'Descripción' %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.input :goal, label: 'Monto necesario' %>
   </div>
 
   <div class="field">
-    <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+    <%= f.input :goal, label: 'Monto necesario' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.input :goal, label: 'Monto necesario' %>
   </div>
+
+  <div class="field">
+    <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
+  </div>
+
+  <%= f.button :submit, 'Guardar proyecto', class: "btn" %>
+
 <% end %>
