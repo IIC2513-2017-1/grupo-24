@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on("turbolinks:load", function() {
+  $('#search-btn').click(function(){
+    if ($('#search-input').val().length != 0){
+      window.location.href='/buscar/' + $('#search-input').val();
+    }
+  });
+  if ($('#search-input').length != 0){
+    document.querySelector('#search-input').addEventListener('keypress', function (e) {
+      var key = e.which || e.keyCode;
+      if (key === 13 && $('#search-input').val().length != 0) { // 13 is enter
+        window.location.href='/buscar/' + $('#search-input').val();
+      }
+    });
+  }
+});

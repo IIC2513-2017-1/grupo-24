@@ -1412,3 +1412,138 @@ Processing by HomeController#main as HTML
 Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-04-25 17:32:45 -0300
+Started GET "/" for 127.0.0.1 at 2017-04-25 17:32:45 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (21.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (21.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#main as HTML
+Processing by HomeController#main as HTML
+  Rendering home/main.html.erb within layouts/application
+  Rendering home/main.html.erb within layouts/application
+  Rendered home/main.html.erb within layouts/application (17.1ms)
+  Rendered home/main.html.erb within layouts/application (15.8ms)
+  Rendered layouts/_menu.html.erb (0.8ms)
+  Rendered layouts/_menu.html.erb (0.3ms)
+Completed 200 OK in 643ms (Views: 569.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 647ms (Views: 571.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-25 17:36:10 -0300
+Processing by HomeController#main as HTML
+  Rendering home/main.html.erb within layouts/application
+  Rendered home/main.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_menu.html.erb (1.2ms)
+Completed 200 OK in 107ms (Views: 101.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/buscar/asda" for 127.0.0.1 at 2017-04-25 17:36:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/buscar/asda"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered collection of /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (24.3ms)
+  Rendered /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (42.0ms)
+  Rendering /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/juan/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.3ms)
+Started GET "/buscar/asda" for 127.0.0.1 at 2017-04-25 17:41:29 -0300
+Processing by HomeController#search as HTML
+  Parameters: {"search"=>"asda"}
+  Rendering home/search.html.erb within layouts/application
+  Rendered home/search.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_menu.html.erb (1.3ms)
+Completed 200 OK in 82ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2017-04-25 17:41:40 -0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (166.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (258.8ms)
+  Rendered layouts/_menu.html.erb (0.8ms)
+Completed 200 OK in 367ms (Views: 28.5ms | ActiveRecord: 252.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 17:41:41 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (19.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (23.9ms)
+  Rendered layouts/_menu.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 24.1ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-25 17:41:42 -0300
+Processing by HomeController#main as HTML
+  Rendering home/main.html.erb within layouts/application
+  Rendered home/main.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_menu.html.erb (0.9ms)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 17:41:43 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_menu.html.erb (0.8ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2017-04-25 17:41:43 -0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_menu.html.erb (0.8ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 17:41:44 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_menu.html.erb (1.0ms)
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2017-04-25 17:41:52 -0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_menu.html.erb (1.1ms)
+Completed 200 OK in 51ms (Views: 47.4ms | ActiveRecord: 1.0ms)
+
+

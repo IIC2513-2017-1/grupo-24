@@ -2,6 +2,10 @@
   <li><a class="<%= check_active(root_url) %>" href="<%= root_path %>">Inicio</a></li>
   <li><a class="<%= check_active(projects_url) %>" href="<%= projects_path %>">Proyectos</a></li>
   <li><a class="<%= check_active(categories_url) %>" href="<%= categories_path %>">Categorías</a></li>
+  <li style="align=center;">
+    <input id="search-input" type="text" placeholder="Buscar...">
+    <button id="search-btn" class="btn" type="button"><i>Buscar</i></button>
+  </li>
   <li style="float:right"><a class="<%= check_active(new_user_url) %>" href="<%= new_user_path %>">Registrarme</a></li>
   <li style="float:right"><a class="<%= check_active(users_url) %>" href="<%= users_path %>">Iniciar sesión</a></li>
 </ul>
