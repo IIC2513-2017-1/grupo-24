@@ -9,15 +9,17 @@
 User.find_or_create_by(email: 'admin@admin.com', password: '123123',
                        username: 'admin', name: 'Administrador',
                        last_name: 'Admin', admin: true)
-User.find_or_create_by(email: 'jicortes2@uc.com', password: '123123',
+User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
                       username: 'jicortes2', name: 'Juan Ignacio',
                       last_name: 'Cortés Vergara', admin: true)
-User.find_or_create_by(email: 'juan.cv94@gmail.com', password: '123123',
-                      username: 'juan', name: 'Juan',
-                      last_name: 'Cortés', admin: false)
-User.find_or_create_by(email: 'normal@normal.com', password: '123123',
-                       username: 'normal', name: 'Normal',
-                       last_name: 'User', admin: false)
+5.times do
+  User.create(email: Faker::Internet.unique.email,
+              username: Faker::Internet.unique.user_name,
+              password: Faker::Internet.password(8),
+              name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
+              admin: false)
+end
 
 Category.find_or_create_by(name: 'Tecnología')
 Category.find_or_create_by(name: 'Juegos de mesa')
@@ -26,3 +28,13 @@ Category.find_or_create_by(name: 'Artesanía')
 Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
+
+10.times do
+  Project.create(goal: rand*Random.rand(100000000),
+                 title: Faker::Lorem.sentence,
+                 description: Faker::Lorem.paragraph(2),
+                 user_id: rand(6)+1,
+                 category_id: rand(6)+1,
+                 publish: true
+                 )
+end

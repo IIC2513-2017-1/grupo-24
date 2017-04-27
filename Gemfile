@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 ### ADDED ###
 gem 'paperclip'
 gem 'simple_form'
+gem 'faker'
 
 
 group :development, :test do

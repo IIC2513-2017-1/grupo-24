@@ -7,7 +7,22 @@
     <button id="search-btn" class="btn" type="button"><i>Buscar</i></button>
   </li>
   <% if current_user.present? %>
-    <li style="float:right"><a class="<%= check_active(edit_user_url(current_user)) %>" href="<%= edit_user_path(current_user) %>"><%= current_user.full_name %></a></li>
+    <div class="dropdown" style="float:right">
+      <button class="dropbtn"><%= current_user.full_name %></button>
+      <div class="dropdown-content">
+          <%= link_to 'Editar cuenta', edit_user_path(current_user) %>
+        <% if current_user.projects.size > 0 %>
+        <%# TODO: add correct path %>
+          <%= link_to 'Mis proyectos', edit_user_path(current_user) %>
+        <% end %>
+        <!-- <% if current_user.projects.size > 0 %>
+        <%# TODO: add fund projects %>
+          <a href="<%= edit_user_path(current_user) %>">Mis proyectos</a>
+        <% end %> -->
+        <%= link_to 'Salir', session_path, method: :delete %>
+      </div>
+      asdasd
+    </div>
   <% else %>
     <li style="float:right"><a class="<%= check_active(new_user_url) %>" href="<%= new_user_path %>">Registrarme</a></li>
     <li style="float:right"><a class="<%= check_active(new_session_url) %>" href="<%= new_session_path %>">Iniciar sesión</a></li>
