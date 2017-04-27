@@ -46,3 +46,9 @@
  .active {
      background-color: #4CAF50;
  }
+
+ .new-button, .edit-button {
+   border-color: #818488;
+   color: #818488;
+   margin-left: 10px;
+  }

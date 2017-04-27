@@ -6,6 +6,10 @@
     <input id="search-input" type="text" placeholder="Buscar...">
     <button id="search-btn" class="btn" type="button"><i>Buscar</i></button>
   </li>
-  <li style="float:right"><a class="<%= check_active(new_user_url) %>" href="<%= new_user_path %>">Registrarme</a></li>
-  <li style="float:right"><a class="<%= check_active(users_url) %>" href="<%= users_path %>">Iniciar sesión</a></li>
+  <% if current_user.present? %>
+    <li style="float:right"><a class="<%= check_active(edit_user_url(current_user)) %>" href="<%= edit_user_path(current_user) %>"><%= current_user.full_name %></a></li>
+  <% else %>
+    <li style="float:right"><a class="<%= check_active(new_user_url) %>" href="<%= new_user_path %>">Registrarme</a></li>
+    <li style="float:right"><a class="<%= check_active(new_session_url) %>" href="<%= new_session_path %>">Iniciar sesión</a></li>
+  <% end %>
 </ul>
