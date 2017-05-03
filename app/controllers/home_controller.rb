@@ -6,9 +6,9 @@ class HomeController < ApplicationController
   def search
     @by_title = Project.where('title ILIKE :search',
                                  search: "%#{params[:search]}%")
-    @by_content = Project.where('content ILIKE :search',
+    @by_content = Project.where('description ILIKE :search',
                                  search: "%#{params[:search]}%")
-    @by_category = Project.where('category = :search',
-                                 search: "%#{params[:search]}%")
+    #@by_category = Project.where('category = :search',
+    #                             search: "%#{params[:search]}%")
   end
 end
