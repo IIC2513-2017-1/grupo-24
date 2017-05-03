@@ -1,16 +1,23 @@
 class ProjectsController < ApplicationController
+  include Secured
+
+  before_action :logged_in?, only: %i[new create edit update destroy]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :available_categories, only: [:edit, :new, :update, :create]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.where('publish = true')
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+  end
+
+  def my_projects
+    @projects = Project.where('user_id = :me', me: current_user.id)
   end
 
   # GET /projects/new
