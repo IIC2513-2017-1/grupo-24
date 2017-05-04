@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#main'
   resources :categories
   resources :users do
-    resources :projects
+    resources :projects, only: [:index, :edit, :destroy]
   end
   resources :projects, only: [:index, :show]
   #get 'users/:id/projects',

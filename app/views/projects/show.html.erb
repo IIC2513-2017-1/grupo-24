@@ -1,26 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<h1> <%= @project.title %> </h1>
 <p>
-  <strong>Goal:</strong>
-  <%= @project.goal %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+  <h3> <%= @project.category.name %> </h3>
   <%= @project.description %>
 </p>
-
 <p>
-  <strong>User:</strong>
-  <%= @project.user %>
+  <strong>Meta:</strong>
+
+  <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
 </p>
 
+
 <p>
-  <strong>Category:</strong>
-  <%= @project.category %>
+  <strong>Creador:</strong>
+  <%= @project.user.full_name %>
 </p>

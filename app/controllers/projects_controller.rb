@@ -19,7 +19,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    puts '212321312'
+    unless @project.publish || current_user == project.user
+      redirect_to root_path, alert: 'No esta disponible'
+    end
   end
 
   # GET /projects/new
