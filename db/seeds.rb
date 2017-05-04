@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Category.destroy_all
+Project.destroy_all
 
 User.find_or_create_by(email: 'admin@admin.com', password: '123123',
                        username: 'admin', name: 'Administrador',
@@ -12,7 +15,7 @@ User.find_or_create_by(email: 'admin@admin.com', password: '123123',
 User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
                       username: 'jicortes2', name: 'Juan Ignacio',
                       last_name: 'Cortés Vergara', admin: true)
-5.times do
+15.times do
   User.create(email: Faker::Internet.unique.email,
               username: Faker::Internet.unique.user_name,
               password: Faker::Internet.password(8),
@@ -28,13 +31,16 @@ Category.find_or_create_by(name: 'Artesanía')
 Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
-
-10.times do
-  Project.create(goal: rand*Random.rand(100000000),
+100.times do
+  offset = rand(User.count)
+  user = User.offset(offset).first
+  offset2 = rand(Category.count)
+  category = Category.offset(offset2).first
+  Project.create(goal: rand*Random.rand(100000),
                  title: Faker::Lorem.sentence,
                  description: Faker::Lorem.paragraph(2),
-                 user_id: rand(6)+1,
-                 category_id: rand(6)+1,
+                 user_id: user.id,
+                 category_id: category.id,
                  publish: true
                  )
 end

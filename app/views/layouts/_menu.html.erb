@@ -1,7 +1,9 @@
 <ul>
   <li><a class="<%= check_active(root_url) %>" href="<%= root_path %>">Inicio</a></li>
   <li><a class="<%= check_active(projects_url) %>" href="<%= projects_path %>">Proyectos</a></li>
-  <li><a class="<%= check_active(categories_url) %>" href="<%= categories_path %>">Categorías</a></li>
+  <% if current_user && current_user.admin %>
+    <li><a class="<%= check_active(categories_url) %>" href="<%= categories_path %>">Categorías</a></li>
+  <% end %>
   <li style="align=center;">
     <input id="search-input" type="text" placeholder="Buscar...">
     <button id="search-btn" class="btn" type="button"><i>Buscar</i></button>

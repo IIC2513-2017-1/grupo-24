@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.input :username, label: 'Nombre de usuario' %>
+    <%= f.input :username, required: true, label: 'Nombre de usuario' %>
   </div>
 
   <div class="field">
-    <%= f.input :email, label: 'Correo electrónico' %>
+    <%= f.input :email, required: true, type: 'email', label: 'Correo electrónico' %>
   </div>
 
   <div class="field">
-    <%= f.input :password, type: 'password', label: 'Contraseña' %>
+    <%= f.input :password, required: true, type: 'password', label: 'Contraseña' %>
   </div>
 
   <div class="field">

@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   before_action :logged_in?, only: %i[new create edit update destroy]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :available_categories, only: [:edit, :new, :update, :create]
-
   # GET /projects
   # GET /projects.json
   def index
@@ -19,7 +18,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    unless @project.publish || current_user == project.user
+    unless @project.publish || current_user == @project.user
       redirect_to root_path, alert: 'No esta disponible'
     end
   end
@@ -31,6 +30,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    redirect_to :back, alert: 'Acceso restringido' unless @project.user == current_user
   end
 
   # POST /projects
@@ -77,7 +77,6 @@ class ProjectsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
-    puts 'buscando!!', '###########################'
     @project = Project.find(params[:id])
   end
 
