@@ -8,16 +8,17 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where('publish = true')
+    @projects = Project.where(publish: true)
+    @mines = false
+    if params[:user_id]
+      @projects = Project.where(user_id: params[:user_id])
+      @mines = true
+    end
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
-  end
-
-  def my_projects
-    @projects = Project.where('user_id = :me', me: current_user.id)
   end
 
   # GET /projects/new

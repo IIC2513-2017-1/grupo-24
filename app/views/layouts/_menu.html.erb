@@ -12,8 +12,7 @@
     <div class="dropdown-content">
       <%= link_to 'Editar cuenta', edit_user_path(current_user) %>
       <% if current_user.projects.size > 0 %>
-      <%# TODO: add correct path %>
-        <%= link_to 'Mis proyectos', edit_user_path(current_user) %>
+        <%= link_to 'Mis proyectos', user_projects_path(current_user) %>
       <% end %>
       <!-- <% if current_user.projects.size > 0 %>
       <%# TODO: add fund projects %>

@@ -3,7 +3,7 @@
   <h4> Coincidencias en título: <%= @by_title.size %> </h4>
   <ol class="container">
     <% @by_title.each do |project| %>
-      <%= render partial: 'projects/show', locals: { project: project } %>
+      <%= render partial: 'projects/show', locals: { project: project, mines: false } %>
     <% end %>
   </ol>
 <% end %>
@@ -11,7 +11,7 @@
   <h4> Coincidencias en contenido: <%= @by_content.size %> </h4>
   <ol class="container">
     <% @by_content.each do |project| %>
-      <%= render partial: 'projects/show', locals: { project: project } %>
+      <%= render partial: 'projects/show', locals: { project: project, mines: false } %>
     <% end %>
   </ol>
 <% end %>
