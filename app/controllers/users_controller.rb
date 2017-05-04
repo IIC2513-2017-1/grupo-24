@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  include Secured
+
+  before_action :logged_in?, except: [:new]
+  before_action :is_admin?, only: [:index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users

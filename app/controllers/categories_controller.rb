@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   include Secured
 
+  before_action :is_admin?
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories

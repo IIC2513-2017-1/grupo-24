@@ -64,3 +64,12 @@
  .dropdown:hover .dropdown-content {
      display: block;
  }
+
+/* Flashes */
+.flash-error {
+  color: red;
+}
+
+.flash-notice {
+  color: green;
+}

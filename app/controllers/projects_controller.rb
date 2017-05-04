@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    puts '212321312'
   end
 
   # GET /projects/new
@@ -74,6 +75,7 @@ class ProjectsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
+    puts 'buscando!!', '###########################'
     @project = Project.find(params[:id])
   end
 

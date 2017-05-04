@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'home#main'
-  resources :projects
-  resources :categories, only: [:index]
+  resources :categories
   resources :users do
     resources :projects
   end
+  resources :projects, only: [:index, :show]
   #get 'users/:id/projects',
   resource :session, only: [:new, :create, :destroy]
   get '/buscar/:search', to: 'home#search', as: 'search'
