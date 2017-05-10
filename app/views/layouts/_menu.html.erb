@@ -16,10 +16,7 @@
       <% if current_user.projects.size > 0 %>
         <%= link_to 'Mis proyectos', user_projects_path(current_user) %>
       <% end %>
-      <!-- <% if current_user.projects.size > 0 %>
-      <%# TODO: add fund projects %>
-        <a href="<%= edit_user_path(current_user) %>">Mis proyectos</a>
-      <% end %> -->
+      <%= link_to 'Donaciones realizadas', user_donations_path(current_user) %>
       <%= link_to 'Salir', session_path, method: :delete %>
     </div>
   </li>
