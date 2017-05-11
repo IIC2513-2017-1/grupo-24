@@ -1,2 +1,7 @@
-<h1>Donations#index</h1>
-<p>Find me in app/views/donations/index.html.erb</p>
+<h1>Donaciones de <%= @user.full_name %></h1>
+<% @donations.each do |donation| %>
+<h3><%=link_to donation.project.title, project_path(donation.project) %>
+  <%= @user == current_user ? ' - '+number_to_currency(donation.project.goal, unit: "CLP$", delimiter: ".", format: "%u%n") : '' %>
+</h3>
+<h5>De <strong><%= donation.project.user.full_name %></h5>
+<% end %>

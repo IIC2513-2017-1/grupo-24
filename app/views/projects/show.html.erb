@@ -1,18 +1,45 @@
 <p id="notice"><%= notice %></p>
+<div class=project-container>
+  <div class="project-content">
+    <h1> <%= @project.title %> </h1>
+    <p>
+      <h3> <%= @project.category.name %> </h3>
+      <%= @project.description %>
+    </p>
+    <p>
+      <strong>Creador:</strong>
+      <%= @project.user.full_name %>
+    </p>
+  </div>
+  <div class="project-stats">
+    <p>
+      <strong>Meta:</strong>
 
-<h1> <%= @project.title %> </h1>
-<p>
-  <h3> <%= @project.category.name %> </h3>
-  <%= @project.description %>
-</p>
-<p>
-  <strong>Meta:</strong>
-
-  <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
-</p>
-
-
-<p>
-  <strong>Creador:</strong>
-  <%= @project.user.full_name %>
-</p>
+      <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
+    </p>
+    <%= form_for Donation.new, {controller: 'donations', action: "create" } do |f| %>
+      <%= f.label(:q, "¿Quieres aportar en este proyecto?") %>
+      <%= f.number_field(:ammount, min: 0) %>
+      <%= f.hidden_field(:project_id, value: @project.id) %>
+      <%= f.hidden_field(:user_id, value: current_user ? current_user.id : nil) %>
+      <%= f.submit("¡Donar!") %>
+    <% end %>
+  </div>
+  <div class='comments'>
+    <h2> Comentarios </h2>
+    <% @comments.each do |comment| %>
+      <p><small><strong><%= comment.user.full_name %>:</strong></small><br>
+        <%= comment.content %>
+      </p>
+    <% end %>
+  </div>
+  <div class="project-stats">
+    <%= form_for Comment.new, {controller: 'comments', action: "create" } do |f| %>
+      <%= f.label(:q, "Comentar") %>
+      <%= f.text_field(:content) %>
+      <%= f.hidden_field(:project_id, value: @project.id) %>
+      <%= f.hidden_field(:user_id, value: current_user ? current_user.id : nil) %>
+      <%= f.submit("Publicar") %>
+    <% end %>
+  </div>
+</div>

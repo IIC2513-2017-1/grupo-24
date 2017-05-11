@@ -1,2 +1,4 @@
-tmp/cache/assets
-log/development.log
+/public/system
+/spec/tmp
+/tmp
+/log
