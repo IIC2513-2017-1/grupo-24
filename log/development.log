@@ -21720,3 +21720,620 @@ Processing by ProjectsController#show as HTML
 Completed 200 OK in 69ms (Views: 61.9ms | ActiveRecord: 2.9ms)
 
 
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:51:10 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.5ms)
+Completed 200 OK in 114ms (Views: 109.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-05-11 23:51:16 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"doNu28dv6He4huEtBBY7NXZHANlFktKVy6ZXXQCbj0XRUj/EKpR0H5/F6eLTKAPNZ73iKbhDxfU84NaiHAXUOQ==", "comment"=>{"content"=>"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "project_id"=>"22"}, "commit"=>"Publicar"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "project_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["content", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"], ["created_at", 2017-05-12 02:51:16 UTC], ["updated_at", 2017-05-12 02:51:16 UTC]]
+  [1m[35m (41.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 57ms (ActiveRecord: 44.6ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:51:16 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.0ms)
+Completed 200 OK in 42ms (Views: 37.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-05-11 23:51:25 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dUbl42vvFF5sdHa+x9cNfN3vhHwTXzoj2dXuF86KeFfSl7T8hhSINks3fnEQ6TWEzBVmjO6OLUMuk2/o0hQjKw==", "comment"=>{"content"=>"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "project_id"=>"22"}, "commit"=>"Publicar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "project_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["content", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"], ["created_at", 2017-05-12 02:51:25 UTC], ["updated_at", 2017-05-12 02:51:25 UTC]]
+  [1m[35m (61.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 70ms (ActiveRecord: 62.7ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:51:25 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (12.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.5ms)
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:51:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (9.5ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.9ms)
+Completed 200 OK in 65ms (Views: 61.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:51:51 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (13.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.8ms)
+Completed 200 OK in 46ms (Views: 42.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-11 23:53:50 -0300
+Processing by HomeController#main as HTML
+  Rendering home/main.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered home/main.html.erb within layouts/application (1.5ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.8ms)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-05-11 23:53:52 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."publish" = $1[0m  [["publish", true]]
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."publish" = $1[0m  [["publish", true]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (5.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (10.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  Rendered projects/_preview.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/index.html.erb within layouts/application (167.6ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (4.4ms)
+Completed 200 OK in 202ms (Views: 193.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:53:54 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (18.5ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.6ms)
+Completed 200 OK in 59ms (Views: 51.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:54:31 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (19.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.7ms)
+Completed 200 OK in 62ms (Views: 56.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/donations" for 127.0.0.1 at 2017-05-11 23:57:28 -0300
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pXO9bYAkhA3R6Lm7UGkb856Eai+RSZcL2yH5JfrZARwCouxybd8YZfarsXSHVyMLj36I32yYgGssZ3ja5kdaYA==", "donation"=>{"ammount"=>"", "project_id"=>"22", "user_id"=>"51"}, "commit"=>"¡Donar!"}
+Unpermitted parameter: user_id
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (46.6ms)[0m  [1m[32mINSERT INTO "donations" ("user_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["created_at", 2017-05-12 02:57:29 UTC], ["updated_at", 2017-05-12 02:57:29 UTC]]
+  [1m[35m (19.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 99ms (ActiveRecord: 66.3ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:57:29 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (31.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (4.3ms)
+Completed 200 OK in 69ms (Views: 55.7ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:57:52 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (11.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.9ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/donations" for 127.0.0.1 at 2017-05-11 23:58:05 -0300
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+HFv2pIp2i22B9WCugmJ0EZ8DtILWTVPiDNh2e+ZMuJfoD7Ff9JGRZFE3U1tN7EoV4bsIvaIIi9/deAm8wdpng==", "donation"=>{"ammount"=>"", "project_id"=>"22"}, "commit"=>"¡Donar!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "donations" ("user_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["created_at", 2017-05-12 02:58:05 UTC], ["updated_at", 2017-05-12 02:58:05 UTC]]
+  [1m[35m (22.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 33ms (ActiveRecord: 24.5ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:05 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (11.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (4.8ms)
+Completed 200 OK in 45ms (Views: 41.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/donations" for 127.0.0.1 at 2017-05-11 23:58:07 -0300
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xaxw3dKhTMk4rvnu45Z0FwMbU0H/NkSmwTUhYc0ojLFifSHCP1rQoR/t8SE0qEzvEuGxsQLnU8Y2c6Ce0bbXzQ==", "donation"=>{"ammount"=>"", "project_id"=>"22"}, "commit"=>"¡Donar!"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "donations" ("user_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["created_at", 2017-05-12 02:58:07 UTC], ["updated_at", 2017-05-12 02:58:07 UTC]]
+  [1m[35m (61.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 70ms (ActiveRecord: 62.3ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:07 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (11.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.1ms)
+Completed 200 OK in 45ms (Views: 41.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/donations" for 127.0.0.1 at 2017-05-11 23:58:07 -0300
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2km75naZHH8hGBe5uWXLKHcOxrdVzmcc2Te9gTxzXy99mOr5m2KAFwZbH3ZuW/PQZvQkR6gfcHwucTx+IO0EUw==", "donation"=>{"ammount"=>"", "project_id"=>"22"}, "commit"=>"¡Donar!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "donations" ("user_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["created_at", 2017-05-12 02:58:07 UTC], ["updated_at", 2017-05-12 02:58:07 UTC]]
+  [1m[35m (53.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 63ms (ActiveRecord: 55.7ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:08 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (10.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (3.1ms)
+Completed 200 OK in 42ms (Views: 38.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (14.8ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.9ms)
+Completed 200 OK in 44ms (Views: 39.6ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/donations" for 127.0.0.1 at 2017-05-11 23:58:52 -0300
+Processing by DonationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9qEU9CTGAsyxe3mZ2M3XyKVYLf7AVf1HQ93NwKcPiVhRcEXryT2epJY4cVYP8+8wtKLPDj2E6ie0m0w/u5HSJA==", "donation"=>{"ammount"=>"", "project_id"=>"22"}, "commit"=>"¡Donar!"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "donations" ("user_id", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 51], ["project_id", 22], ["created_at", 2017-05-12 02:58:52 UTC], ["updated_at", 2017-05-12 02:58:52 UTC]]
+  [1m[35m (31.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/projects/22
+Completed 302 Found in 41ms (ActiveRecord: 33.2ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:52 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (10.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.7ms)
+Completed 200 OK in 48ms (Views: 44.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:58 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (10.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.9ms)
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:58:59 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (10.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.8ms)
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2017-05-11 23:59:00 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."project_id" = $1[0m  [["project_id", 22]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (22.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered layouts/_menu.html.erb (2.8ms)
+Completed 200 OK in 71ms (Views: 63.6ms | ActiveRecord: 3.6ms)
+
+

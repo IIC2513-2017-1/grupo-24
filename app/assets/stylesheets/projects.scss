@@ -33,3 +33,8 @@
   width: auto;
   display: inline-block;
 }
+.comments > p {
+  display: block;
+  width: 30%;
+  word-wrap: break-word;
+}

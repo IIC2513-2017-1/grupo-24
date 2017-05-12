@@ -1,3 +1,4 @@
 /spec/tmp
 /tmp
 /log
+*.cache

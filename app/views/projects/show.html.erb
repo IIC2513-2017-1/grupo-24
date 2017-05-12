@@ -19,16 +19,15 @@
     </p>
     <%= form_for Donation.new, {controller: 'donations', action: "create" } do |f| %>
       <%= f.label(:q, "¿Quieres aportar en este proyecto?") %>
-      <%= f.number_field(:ammount, min: 0) %>
+      <%= f.number_field :ammount, min: 0, required: true %>
       <%= f.hidden_field(:project_id, value: @project.id) %>
-      <%= f.hidden_field(:user_id, value: current_user ? current_user.id : nil) %>
       <%= f.submit("¡Donar!") %>
     <% end %>
   </div>
   <div class='comments'>
     <h2> Comentarios </h2>
     <% @comments.each do |comment| %>
-      <p><small><strong><%= comment.user.full_name %>:</strong></small><%= comment.content %><br>
+      <p><small><strong><%= comment.user.full_name %>: </strong></small><%= comment.content %><br>
         <small><%= l(comment.created_at, format: '%d/%M%Y - %R') %></small>
       </p>
     <% end %>
