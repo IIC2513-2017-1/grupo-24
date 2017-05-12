@@ -2,6 +2,4 @@
 /spec/tmp
 /tmp
 /log
-log
-tmp
 *.cache
