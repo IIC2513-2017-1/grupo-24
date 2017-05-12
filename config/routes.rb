@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :edit, :destroy]
     resources :donations, only: [:index]
   end
-  resources :projects, only: [:index, :show]
+  resources :projects, only: [:index, :show, :new]
   #get 'users/:id/projects',
   resource :session, only: [:new, :create, :destroy]
   resource :donations, only: [:create]
