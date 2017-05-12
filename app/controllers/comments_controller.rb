@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  include Secured
+
+  before_action :logged_in?, only: %i[create]
+
   def create
     @comment = Comment.new(comment_params)
     respond_to do |format|
@@ -13,6 +17,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :project_id, :content)
+    params.require(:comment).permit(:project_id, :content).merge(user_id: current_user.id)
   end
 end
