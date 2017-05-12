@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   root 'home#main'
   resources :categories
   resources :users do
-    resources :projects, only: [:index, :edit, :destroy]
+    resources :projects, only: [:index]
     resources :donations, only: [:index]
   end
-  resources :projects, only: [:index, :show, :new]
+  resources :projects
   #get 'users/:id/projects',
   resource :session, only: [:new, :create, :destroy]
   resource :donations, only: [:create]

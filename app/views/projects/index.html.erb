@@ -4,4 +4,3 @@
       <%= render partial: 'projects/preview', locals: { project: project, mines: @mines } %>
     <% end %>
   </ol>
-  <%= link_to 'Nuevo Proyecto', current_user ? new_user_path : new_session_path, class: 'new-button' %>

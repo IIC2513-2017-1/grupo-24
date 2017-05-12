@@ -2,11 +2,10 @@
 <div class=project-container>
   <div class="project-content">
     <h1> <%= @project.title %> </h1>
+    <%= image_tag @project.image.exists? ? @project.image.url(:original) : 'zelda.jpg', class: 'project-view' %>
     <p>
       <h3> <%= @project.category.name %> </h3>
-      <%= @project.description %>
-    </p>
-    <p>
+      <%= @project.description %><br>
       <strong>Creador:</strong>
       <%= @project.user.full_name %>
     </p>

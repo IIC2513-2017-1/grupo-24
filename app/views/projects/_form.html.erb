@@ -16,11 +16,22 @@
   </div>
 
   <div class="field">
+    <label>Imagen</label>
+    <span class="btn" style="width:100%;">
+      <%= f.file_field :image %>
+    </span>
+  </div>
+
+  <div class="field">
     <%= f.input :description, label: 'Descripción' %>
   </div>
 
   <div class="field">
     <%= f.input :goal, label: 'Monto necesario' %>
+  </div>
+
+  <div class="field">
+    <%= f.input :publish, label: '¿Publicar?' %>
   </div>
 
   <div class="field">

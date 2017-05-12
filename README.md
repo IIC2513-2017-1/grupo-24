@@ -22,5 +22,12 @@ Then, ensure you have installed all the gems required
 Finally...
 * rails server
 
+#### Paperclip on development
+Mac OS X
+* brew install imagemagick
+* brew install gs
+Ubuntu (or any Debian base Linux distribution)
+* sudo apt-get install imagemagick -y
+
 #### Heroku
 https://all-for-one.herokuapp.com/

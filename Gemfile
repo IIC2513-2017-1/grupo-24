@@ -36,10 +36,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 ### ADDED ###
-gem 'paperclip'
 gem 'simple_form'
 gem 'faker'
 gem 'awesome_print'
+gem "paperclip", "~> 5.0.0"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

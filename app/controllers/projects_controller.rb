@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
   include Secured
 
-  before_action :logged_in?, only: %i[new create edit update destroy]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?, only: %i[new create edit update destroy]
+  before_action :is_mine?, only: [:edit, :update, :destroy]
   before_action :available_categories, only: [:edit, :new, :update, :create]
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(publish: true)
+    @projects = Project.where(publish: true).order(updated_at: :desc)
     @mines = false
     if params[:user_id]
       @projects = Project.where(user_id: params[:user_id])
@@ -41,7 +42,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to user_project(current_user, @project),
+                      notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -84,9 +86,16 @@ class ProjectsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
     params.require(:project)
-          .permit(:goal, :title, :description, :user_id, :category_id)
+          .permit(:goal, :title, :description, :user_id, :category_id, :image,
+                  :publish)
           .merge(user_id: current_user.id)
 
+  end
+
+  def is_mine?
+    if @project.user != current_user
+      redirect_to :back, alert: 'No puedes editar un proyecto ajeno'
+    end
   end
 
   def available_categories

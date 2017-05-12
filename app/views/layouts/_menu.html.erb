@@ -1,6 +1,7 @@
 <ul>
   <li><a class="<%= check_active(root_url) %>" href="<%= root_path %>">Inicio</a></li>
   <li><a class="<%= check_active(projects_url) %>" href="<%= projects_path %>">Proyectos</a></li>
+  <li><a class="<%= check_active(new_project_url) %>" href="<%= new_project_path %>">Nuevo proyecto</a></li>
   <% if current_user && current_user.admin %>
     <li><a class="<%= check_active(categories_url) %>" href="<%= categories_path %>">Categorías</a></li>
   <% end %>
