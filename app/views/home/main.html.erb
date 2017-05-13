@@ -11,3 +11,22 @@
 <h3> Ver todos los <%= link_to 'Usuarios', users_path %></h3>
 <% end %>
 <h3> Ver todos los <%= link_to 'Proyectos', projects_path %></h3>
+
+<div class="w3-container">
+  <h2>Slideshow Caption</h2>
+  <p>Add a caption text for each image slide with the w3-display-* classes (topleft, topmiddle, topright, bottomleft, bottommiddle, bottomright or middle).</p>
+</div>
+
+<div class="w3-content w3-display-container">
+<% @projects.each do |project| %>
+  <div class="w3-display-container mySlides">
+    <%= image_tag(project.image.exists? ? project.image.url : 'zelda.jpg', style: 'width:100%;') %>
+    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+      <%= project.title %>
+    </div>
+  </div>
+<% end %>
+<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+
+</div>
