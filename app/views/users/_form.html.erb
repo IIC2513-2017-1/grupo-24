@@ -10,34 +10,46 @@
       </ul>
     </div>
   <% end %>
+  <div class="user form">
+    <div class="form-fields">
+      <div class="field">
+        <%= f.input :username, required: true, label: 'Nombre de usuario' %>
+      </div>
 
-  <div class="field">
-    <%= f.input :username, required: true, label: 'Nombre de usuario' %>
+      <div class="field">
+        <%= f.input :email, required: true, type: 'email', label: 'Correo electrónico' %>
+      </div>
+
+      <div class="field">
+        <%= f.input :password, required: true, type: 'password', label: 'Contraseña' %>
+      </div>
+      <div class="field">
+        <%= f.input :password_confirmation, required: true, type: 'password', label: 'Confirmar contraseña' %>
+      </div>
+
+      <div class="field">
+        <%= f.input :name, label: 'Nombres' %>
+      </div>
+
+      <div class="field">
+        <%= f.input :last_name, label: 'Apellidos' %>
+      </div>
+
+      <div class="field">
+        <%= f.input :admin, label: '¿Es administrador?' %>
+      </div>
+
+      <%= f.button :submit, 'Guardar', class: "btn" %>
+    </div>
+    <div class='avatar-display'>
+      <div class="field">
+        <label>Foto de perfil</label>
+        <span class="btn" style="width:100%;">
+          <%= f.file_field :avatar %>
+        </span><br>
+        <%= image_tag user.avatar.exists? ? user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
+        <%#= image_tag( 'default-avatar.png') %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.input :email, required: true, type: 'email', label: 'Correo electrónico' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :password, required: true, type: 'password', label: 'Contraseña' %>
-  </div>
-  <div class="field">
-    <%= f.input :password_confirmation, required: true, type: 'password', label: 'Confirmar contraseña' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :name, label: 'Nombres' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :last_name, label: 'Apellidos' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :admin, label: '¿Es administrador?' %>
-  </div>
-
-  <%= f.button :submit, 'Guardar', class: "btn" %>
-
 <% end %>
