@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resource :donations, only: [:create]
   resource :comments, only: [:create]
-  get '/buscar/:search', to: 'home#search', as: 'search'
+  get '/buscar', to: 'home#search', as: 'search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,16 +1,8 @@
 <h2> Resultados de búsqueda </h2>
-<% if @by_title.size > 0 %>
-  <h4> Coincidencias en título: <%= @by_title.size %> </h4>
+<% if @projects.size > 0 %>
+  <h4> Coincidencias en contenido: <%= @projects.size %> </h4>
   <ol class="container">
-    <% @by_title.each do |project| %>
-      <%= render partial: 'projects/preview', locals: { project: project, mines: false } %>
-    <% end %>
-  </ol>
-<% end %>
-<% if @by_content.size > 0 %>
-  <h4> Coincidencias en contenido: <%= @by_content.size %> </h4>
-  <ol class="container">
-    <% @by_content.each do |project| %>
+    <% @projects.each do |project| %>
       <%= render partial: 'projects/preview', locals: { project: project, mines: false } %>
     <% end %>
   </ol>

@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     @mines = false
     if params[:user_id]
       @projects = Project.where(user_id: params[:user_id])
-      @mines = true
+      @mines = current_user ? current_user.id == params[:user_id] : false
     end
   end
 
