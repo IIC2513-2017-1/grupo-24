@@ -7,10 +7,6 @@
   <% end %>
   <%= yield %>
 </div>
-<% if current_user && current_user.admin %>
-<h3> Ver todos los <%= link_to 'Usuarios', users_path %></h3>
-<% end %>
-<h3> Ver todos los <%= link_to 'Proyectos', projects_path %></h3>
 
 <div class="slideshow-container">
   <% size = @projects.size %>
