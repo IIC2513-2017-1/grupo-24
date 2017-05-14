@@ -12,21 +12,22 @@
 <% end %>
 <h3> Ver todos los <%= link_to 'Proyectos', projects_path %></h3>
 
-<div class="w3-container">
-  <h2>Slideshow Caption</h2>
-  <p>Add a caption text for each image slide with the w3-display-* classes (topleft, topmiddle, topright, bottomleft, bottommiddle, bottomright or middle).</p>
-</div>
-
-<div class="w3-content w3-display-container">
-<% @projects.each do |project| %>
-  <div class="w3-display-container mySlides">
-    <%= image_tag(project.image.exists? ? project.image.url : 'zelda.jpg', style: 'width:100%;') %>
-    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
-      <%= project.title %>
+<div class="slideshow-container">
+  <% size = @projects.size %>
+  <% @projects.each_with_index do |project, i| %>
+    <div class="mySlides fade">
+      <div class="numbertext"><%= "#{i}/#{size}"%></div>
+      <%= image_tag(project.image.exists? ? project.image.url : 'zelda.jpg', style: 'width:100%;') %>
+      <div class="text"><%= project.title%></div>
     </div>
-  </div>
-<% end %>
-<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+  <% end %>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
 
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
 </div>
