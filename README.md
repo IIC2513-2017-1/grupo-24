@@ -29,5 +29,12 @@ Mac OS X
 Ubuntu (or any Debian base Linux distribution)
 * sudo apt-get install imagemagick -y
 
+### Default images
+For projects:
+* zelda.jpg
+
+For users:
+* default-avatar.png
+
 #### Heroku
 https://all-for-one.herokuapp.com/
