@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Donation.destroy_all
-Comment.destroy_all
 User.destroy_all
 Category.destroy_all
 Project.destroy_all
@@ -17,12 +15,13 @@ User.find_or_create_by(email: 'admin@admin.com', password: '123123',
 User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
                       username: 'jicortes2', name: 'Juan Ignacio',
                       last_name: 'Cortés Vergara', admin: true)
+User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
+                      username: 'abulnes1', name: 'Arturo',
+                      last_name: 'Bulnes Ruiz', admin: true)
 15.times do
-  password = Faker::Internet.password(8)
   User.create(email: Faker::Internet.unique.email,
               username: Faker::Internet.unique.user_name,
-              password: password,
-              password_confirmation: password,
+              password: Faker::Internet.password(8),
               name: Faker::Name.first_name,
               last_name: Faker::Name.last_name,
               admin: false)
