@@ -16,11 +16,15 @@
 
       <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
     </p>
+    <% if current_user %>
     <%= form_for Donation.new, {controller: 'donations', action: "create" } do |f| %>
       <%= f.label(:q, "¿Quieres aportar en este proyecto?") %>
       <%= f.number_field :ammount, min: 0, required: true %>
       <%= f.hidden_field(:project_id, value: @project.id) %>
       <%= f.submit("¡Donar!") %>
+    <% end %>
+    <% else %>
+    ¿Quieres aportar? <%= link_to "Registrarme", new_user_path, class: 'btn' %>
     <% end %>
   </div>
   <div class='comments'>

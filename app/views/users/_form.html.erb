@@ -44,7 +44,6 @@
           <%= f.file_field :avatar %>
         </span><br>
         <%= image_tag user.avatar.exists? ? user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
-        <%#= image_tag( 'default-avatar.png') %>
       </div>
     </div>
   </div>

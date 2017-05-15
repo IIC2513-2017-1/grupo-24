@@ -1,29 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="user form">
+  <div class="form-fields">
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
+    <p>
+      <strong>Admin:</strong>
+      <%= @user.admin %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+    <p>
+      <strong>Password:</strong>
+      <%= @user.password %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+    </p>
+  </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class='avatar-display'>
+    <div class="field">
+      <label>Foto de perfil</label>
+      <%= image_tag @user.avatar.exists? ? user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
+    </div>
+  </div>
+</div>
+<% if current_user == @user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
