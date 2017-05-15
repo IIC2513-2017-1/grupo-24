@@ -20,6 +20,9 @@ User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
 User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
                       username: 'abulnes1', name: 'Arturo',
                       last_name: 'Bulnes Ruiz', admin: true)
+User.find_or_create_by(email: 'user@user.com', password: '123123',
+                      username: 'user', name: 'Usuario',
+                      last_name: 'Normal', admin: false)
 15.times do
   password = Faker::Internet.password(8)
   User.create(email: Faker::Internet.unique.email,
@@ -38,7 +41,7 @@ Category.find_or_create_by(name: 'Artesanía')
 Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
-100.times do
+80.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Category.count)

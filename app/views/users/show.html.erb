@@ -26,12 +26,13 @@
       <strong>Last name:</strong>
       <%= @user.last_name %>
     </p>
+    <%= link_to 'Proyectos', user_projects_path(@user) %>
   </div>
 
   <div class='avatar-display'>
     <div class="field">
       <label>Foto de perfil</label>
-      <%= image_tag @user.avatar.exists? ? user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
+      <%= image_tag @user.avatar.exists? ? @user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
     </div>
   </div>
 </div>

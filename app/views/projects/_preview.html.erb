@@ -1,6 +1,6 @@
 <div class="rcorners1">
   <h3 class="project-title"><%=link_to project.title, mines ? edit_project_path(project) : project_path(project) %> </h3>
   <span class="author-info">
-    <strong><u> <%= mines ? "Publicado: #{project.publish ? 'Si' : 'No'}" : project.user.full_name %> </u></strong>
+    <strong><u> <%= mines ? "Publicado: #{project.publish ? 'Si' : 'No'}" : link_to(project.user.full_name, project.user) %> </u></strong>
   </span>
 </div>
