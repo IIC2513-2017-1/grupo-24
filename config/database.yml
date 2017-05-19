@@ -8,6 +8,7 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
+  host: localhost
   encoding: utf-8
   username: all_4_one
   password: 'all4onepassword'
