@@ -1,0 +1,16 @@
+<p>
+  Estimado <%= @user.full_name %>,
+</p>
+
+<p>
+  Le informamos que se creó  con exito un usuario en <%= root_url %> con los siguientes datos:
+  <p><%= @user.name if @user.name.present? %></p>
+  <p><%= @user.last_name if @user.last_name.present? %></p>
+  <p><%= @user.email %></p>
+  <p><%= @user.username if @user.username.present? %></p>
+</p>
+
+<p>
+  Se despide atentamente,<br/>
+  Equipo All-for-one
+</p>

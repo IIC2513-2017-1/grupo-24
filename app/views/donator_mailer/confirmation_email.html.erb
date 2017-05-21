@@ -1,0 +1,13 @@
+<p>
+  Estimado <%= @user.full_name %>,
+</p>
+
+<p>
+  Le informamos que a través de su cuenta de <i>All-for-one</i> se realizó una donación
+  al projecto <%= @project.title %>, por un monto de <%= number_to_currency(@donation.ammount, unit: "CLP$", delimiter: ".", format: "%u%n") %>
+</p>
+
+<p>
+  Se despide atentamente,<br/>
+  Equipo All-for-one
+</p>
