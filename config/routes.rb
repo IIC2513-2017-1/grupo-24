@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'rates/create'
+
+  get 'rates/destroy'
+
   get 'comments/create'
 
   get 'donations/index'

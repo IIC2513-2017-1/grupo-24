@@ -11,6 +11,7 @@ User.destroy_all
 Category.destroy_all
 Project.destroy_all
 
+# Usuarios conocidos
 User.find_or_create_by(email: 'admin@admin.com', password: '123123',
                        username: 'admin', name: 'Administrador',
                        last_name: 'Admin', admin: true)
@@ -23,6 +24,7 @@ User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
 User.find_or_create_by(email: 'user@user.com', password: '123123',
                       username: 'user', name: 'Usuario',
                       last_name: 'Normal', admin: false)
+# Usuarios desconocidos para poblar el enviroment
 15.times do
   password = Faker::Internet.password(8)
   User.create(email: Faker::Internet.unique.email,
@@ -33,7 +35,7 @@ User.find_or_create_by(email: 'user@user.com', password: '123123',
               last_name: Faker::Name.last_name,
               admin: false)
 end
-
+# Categories
 Category.find_or_create_by(name: 'Tecnología')
 Category.find_or_create_by(name: 'Juegos de mesa')
 Category.find_or_create_by(name: 'Deportes')
@@ -41,7 +43,8 @@ Category.find_or_create_by(name: 'Artesanía')
 Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
-80.times do
+# Projects
+50.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Category.count)
@@ -52,5 +55,27 @@ Category.find_or_create_by(name: 'Armas')
                  user_id: user.id,
                  category_id: category.id,
                  publish: true
+                 )
+end
+# Comments
+40.times do
+  offset = rand(User.count)
+  user = User.offset(offset).first
+  offset2 = rand(Project.count)
+  project = Project.offset(offset2).first
+  Comment.create(user_id: user.id,
+                 content: Faker::Lorem.sentence,
+                 project_id: project.id,
+                 )
+end
+# Donations
+40.times do
+  offset = rand(User.count)
+  user = User.offset(offset).first
+  offset2 = rand(Project.count)
+  project = Project.offset(offset2).first
+  Donation.create(user_id: user.id,
+                 ammount: rand*project.goal,
+                 project_id: project.id,
                  )
 end
