@@ -2,7 +2,6 @@ class Rate < ApplicationRecord
   belongs_to :user
   belongs_to :project
 
-  validate :grade, numericality: { less_than_or_equal_to: 5,
-                                   gretear_than_or_equal_to: 0,
-                                   only_integer: true }
+  validates :grade, inclusion: {in: [0,1,2,3,4,5]}
+  validates :grade, :project, :user, presence: true
 end

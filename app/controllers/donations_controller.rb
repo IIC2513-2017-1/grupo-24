@@ -11,7 +11,7 @@ class DonationsController < ApplicationController
   def create
     @donation = Donation.new(donation_params)
     respond_to do |format|
-      if current_user && @donation.save
+      if @donation.save
         DonatorMailer.confirmation_email(@donation).deliver_later
         format.html { redirect_to project_path(@donation.project),
                       notice: 'Donación realizada' }

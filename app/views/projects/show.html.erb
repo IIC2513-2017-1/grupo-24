@@ -12,8 +12,19 @@
   </div>
   <div class="project-stats">
     <p>
+      <% if current_user %>
+      <%= form_for Rate.new, {controller: 'rates', action: "create" } do |f| %>
+        <%= f.label(:q, "¿Te gustó proyecto? ¡Evalualo!") %>
+        <%= f.number_field :grade, min: 0, max: 5, required: true %>
+        <%= f.hidden_field(:project_id, value: @project.id) %>
+        <%= f.submit("¡Evaluar!") %>
+      <% end %>
+      <% else %>
+      ¿Quieres aportar? <%= link_to "Registrarme", new_user_path, class: 'btn' %>
+      <% end %>
+    </p>
+    <p>
       <strong>Meta:</strong>
-
       <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
     </p>
     <% if current_user %>
@@ -27,6 +38,7 @@
     ¿Quieres aportar? <%= link_to "Registrarme", new_user_path, class: 'btn' %>
     <% end %>
   </div>
+
   <div class='comments'>
     <h2> Comentarios </h2>
     <% @comments.each do |comment| %>
