@@ -14,7 +14,19 @@
  *= require_self
  */
 
- ul {
+.main-container {
+  padding-top: 40px;
+}
+
+/* MENU */
+nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index:1;
+}
+ nav > ul {
      list-style-type: none;
      margin: 0;
      padding: 0;
@@ -22,11 +34,11 @@
      background-color: #333;
  }
 
- li {
+ nav > ul > li {
      float: left;
  }
 
- li a, .dropbtn {
+ nav > ul > li a, .dropbtn {
      display: inline-block;
      color: white;
      text-align: center;
@@ -34,11 +46,20 @@
      text-decoration: none;
  }
 
- li a:hover, .dropdown:hover .dropbtn {
+ nav > ul > li a:hover, .dropdown:hover .dropbtn {
      background-color: red;
  }
 
- li.dropdown {
+ nav > ul > li > a {
+   color: white;
+}
+
+ nav > ul > li a.active {
+   color: white;
+   background-color: red;
+ }
+
+ nav > ul > li.dropdown {
      display: inline-block;
  }
 
@@ -65,6 +86,17 @@
      display: block;
  }
 
+/* FOOTER */
+/*.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+*/
 /* Flashes */
 .flash-error {
   color: red;
