@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'rates/create'
-
-  get 'rates/destroy'
-
-  get 'comments/create'
-
-  get 'donations/index'
-
+  namespace :admin do
+    get '/', to: 'home#index'
+    resources :categories
+    resources :users
+    resources :projects
+  end
   root 'home#main'
   resources :categories
   resources :users do

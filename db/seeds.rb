@@ -54,7 +54,8 @@ Category.find_or_create_by(name: 'Armas')
                  description: Faker::Lorem.paragraph(2),
                  user_id: user.id,
                  category_id: category.id,
-                 publish: true
+                 publish: true,
+                 rating: 0
                  )
 end
 # Comments
@@ -65,7 +66,7 @@ end
   project = Project.offset(offset2).first
   Comment.create(user_id: user.id,
                  content: Faker::Lorem.sentence,
-                 project_id: project.id,
+                 project_id: project.id
                  )
 end
 # Donations

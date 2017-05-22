@@ -5,10 +5,6 @@
     <% if current_user %>
       <li><a class="<%= check_active(new_project_url) %>" href="<%= new_project_path %>">Nuevo proyecto</a></li>
     <% end %>
-    <% if current_user && current_user.admin %>
-      <li><a class="<%= check_active(users_url)%>" href="<%= users_url%>">Usuarios</a></li>
-      <li><a class="<%= check_active(categories_url) %>" href="<%= categories_path %>">Categorías</a></li>
-    <% end %>
     <li style="align=center;">
       <div class="index_search">
       <%= form_tag(search_path, method: :get, class: "navbar-form", id: "search-form") do %>
@@ -24,6 +20,9 @@
     <li class="dropdown" style="float:right">
       <a href="javascript:void(0)" class="dropbtn"><%=current_user.full_name %></a>
       <div class="dropdown-content">
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Panel de administracion', admin_path %>
+        <% end %>
         <%= link_to 'Editar cuenta', edit_user_path(current_user) %>
         <% if current_user.projects.size > 0 %>
           <%= link_to 'Mis proyectos', user_projects_path(current_user) %>

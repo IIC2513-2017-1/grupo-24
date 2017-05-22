@@ -25,15 +25,29 @@
 
 .project-container {
   width: 100%;
+  margin-bottom: 20px;
 }
 .project-content {
-  width: 80%;
+  padding: 50px;
+  vertical-align: top;
+  width: 70%;
   display: inline-block;
+  align: center;
+  border-radius: 30px;
+  background-color: #53FFBE;
+  margin-right: 20px;
 }
 
 .project-stats {
-  width: auto;
+  width: 25%;
+  height: inherit;
   display: inline-block;
+  border-radius: 30px;
+  background-color: #53FFBE;
+  margin-left: 20px;
+}
+div.comments {
+  border-top: black thin solid;
 }
 .comments > p {
   display: block;

@@ -1,60 +1,24 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Editar', edit_project_path(@project) if current_user == @project.user %>
 <div class=project-container>
-  <div class="project-content">
-    <h1> <%= @project.title %> </h1>
-    <%= image_tag @project.image.exists? ? @project.image.url(:original) : 'zelda.jpg', class: 'project-view' %>
-    <p>
-      <h3> <%= @project.category.name %> </h3>
-      <%= @project.description %><br>
-      <strong>Creador:</strong>
-      <%= @project.user.full_name %>
+  <%= render partial: 'projects/content', locals: {project: @project} %>
+  <%= render partial: 'projects/stats', locals: {project: @project} %>
+</div>
+<div class='comments'>
+  <h2> Comentarios </h2>
+  <% @comments.each do |comment| %>
+    <p><small><strong><%= comment.user.full_name %>: </strong></small><%= comment.content %><br>
+      <small><%= l(comment.created_at, format: '%d/%M%Y - %R') %></small>
     </p>
-  </div>
-  <div class="project-stats">
-    <p>
-      <% if current_user %>
-      <%= form_for Rate.new, {controller: 'rates', action: "create" } do |f| %>
-        <%= f.label(:q, "¿Te gustó proyecto? ¡Evalualo!") %>
-        <%= f.number_field :grade, min: 0, max: 5, required: true %>
-        <%= f.hidden_field(:project_id, value: @project.id) %>
-        <%= f.submit("¡Evaluar!") %>
-      <% end %>
-      <% else %>
-      ¿Quieres aportar? <%= link_to "Registrarme", new_user_path, class: 'btn' %>
-      <% end %>
-    </p>
-    <p>
-      <strong>Meta:</strong>
-      <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
-    </p>
-    <% if current_user %>
-    <%= form_for Donation.new, {controller: 'donations', action: "create" } do |f| %>
-      <%= f.label(:q, "¿Quieres aportar en este proyecto?") %>
-      <%= f.number_field :ammount, min: 0, required: true %>
-      <%= f.hidden_field(:project_id, value: @project.id) %>
-      <%= f.submit("¡Donar!") %>
-    <% end %>
-    <% else %>
-    ¿Quieres aportar? <%= link_to "Registrarme", new_user_path, class: 'btn' %>
-    <% end %>
-  </div>
-
-  <div class='comments'>
-    <h2> Comentarios </h2>
-    <% @comments.each do |comment| %>
-      <p><small><strong><%= comment.user.full_name %>: </strong></small><%= comment.content %><br>
-        <small><%= l(comment.created_at, format: '%d/%M%Y - %R') %></small>
-      </p>
-    <% end %>
-  </div>
-  <% if current_user %>
-    <div class="project-stats">
-      <%= form_for Comment.new, {controller: 'comments', action: "create" } do |f| %>
-        <%= f.label(:q, "Comentar") %>
-        <%= f.text_field(:content) %>
-        <%= f.hidden_field(:project_id, value: @project.id) %>
-        <%= f.submit("Publicar") %>
-      <% end %>
-    </div>
   <% end %>
 </div>
+<% if current_user %>
+  <div class="comments-form">
+    <%= form_for Comment.new, {controller: 'comments', action: "create" } do |f| %>
+      <%= f.label(:q, "Comentar") %>
+      <%= f.text_field(:content) %>
+      <%= f.hidden_field(:project_id, value: @project.id) %>
+      <%= f.submit("Publicar") %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="project-content">
+  <%= image_tag project.image.exists? ? project.image.url(:original) : 'zelda.jpg', class: 'project-view' %>
+  <h1> <%= project.title %> </h1>
+  <p>
+    <h3> <%= "#{project.category.name}  - #{project.rating}" %> </h3>
+    <%= project.description %><br>
+  </p>
+</div>
