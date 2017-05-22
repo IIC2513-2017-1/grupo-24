@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.where(publish: true).order(updated_at: :desc)
     @mines = false
-    if params[:user_id]
+    if request.original_url.to_s.include?('users')
       @projects = Project.where(user_id: params[:user_id])
-      @mines = current_user ? current_user.id == params[:user_id] : false
+      @mines = current_user ? current_user.id.to_s == params[:user_id] : false
     end
   end
 
