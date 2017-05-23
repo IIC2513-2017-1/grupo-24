@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li><a class="<%= check_active(root_url) %>" href="<%= root_path %>">Inicio</a></li>
+    <li><a class="<%= check_active(admin_projects_url) %>" href="<%= admin_projects_path %>">Proyectos</a></li>
+    <li><a class="<%= check_active(admin_categories_url) %>" href="<%= admin_categories_path %>">Categorías</a></li>
+    <li><a class="<%= check_active(admin_users_url) %>" href="<%= admin_users_path %>">Usuarios</a></li>
+
+    <li class="dropdown" style="float:right">
+      <a href="javascript:void(0)" class="dropbtn"><%=current_user.full_name %></a>
+      <div class="dropdown-content">
+        <%= link_to 'Panel de administracion', admin_path %>
+        <%= link_to 'Volver', root_path %>
+      </div>
+    </li>
+  </ul>
+</nav>
