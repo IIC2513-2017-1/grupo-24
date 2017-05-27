@@ -12,9 +12,9 @@
   <% size = @projects.size %>
   <% @projects.each_with_index do |project, i| %>
     <div class="mySlides fade">
-      <div class="numbertext"><%= "#{i}/#{size}"%></div>
+      <div class="numbertext"><%= "#{i+1}/#{size}"%></div>
       <%= image_tag(project.image.exists? ? project.image.url : 'zelda.jpg', style: 'width:100%;') %>
-      <div class="text"><%= project.title%></div>
+      <div class="slide-text"><%= project.title%></div>
     </div>
   <% end %>
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

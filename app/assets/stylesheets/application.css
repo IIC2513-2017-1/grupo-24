@@ -14,6 +14,13 @@
  *= require_self
  */
 
+/* COLORES: https://color.adobe.com/es/Cfunding-PPT-color-theme-1085471/
+  Azul claro: rgba(83,255,190, 0.4)
+
+  Rojo claro: #FF7153
+  Rojo oscuro: #b24028
+*/
+
 .main-container {
   padding-top: 40px;
   padding-bottom: 10px;

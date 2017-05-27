@@ -5,21 +5,39 @@
   text-align: center;
 }
 .rcorners1 {
-    margin: 6px;
-    border-radius: 25px;
-    background: #73AD21;
+    margin: 30px;
+    border-radius: 10px;
+    background: rgba(83,255,190, 0.4);
     padding: 20px;
     padding-left: 1%;
-    width: 200px;
-    height: 150px;
+    width: 25%;
+    height: 400px;
     vertical-align: top;
     display: inline-block;
+    img {
+      height: 40%;
+      width: auto;
+      max-width: inherit;
+    }
     .project-title {
-      color: white;
+      color: #b24028;
       text-align: center;
+      :visited {
+        color: #b24028;
+      }
+      a:hover {
+        background-color: rgba(0,0,0,0);
+      }
     }
     .author-info {
       float: right;
+      :visited {
+        color: inherit;
+      }
+      a:hover {
+        color: inherit;
+        background-color: rgba(0,0,0,0);
+      }
     }
 }
 
@@ -27,6 +45,7 @@
   width: 100%;
   margin-bottom: 20px;
 }
+
 .project-content {
   padding: 50px;
   vertical-align: top;
@@ -34,8 +53,12 @@
   display: inline-block;
   align: center;
   border-radius: 30px;
-  background-color: #53FFBE;
+  background-color: rgba(83,255,190, 0.4);
   margin-right: 20px;
+  h1 {
+    color: #b24028;
+  }
+  color: #b24028;
 }
 
 .project-stats {
@@ -43,12 +66,15 @@
   height: inherit;
   display: inline-block;
   border-radius: 30px;
-  background-color: #53FFBE;
+  background-color: rgba(83,255,190, 0.4);
   margin-left: 20px;
+  padding: 20px;
 }
+
 div.comments {
   border-top: black thin solid;
 }
+
 .comments > p {
   display: block;
   width: 30%;
