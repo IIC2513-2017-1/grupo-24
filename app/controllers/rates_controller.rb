@@ -6,8 +6,18 @@ class RatesController < ApplicationController
   def create
     @rate = Rate.find_by(user_id: current_user.id, project_id: params[:rate][:project_id])
     if @rate
-      @rate.update(rate_params)
+      puts 'LO ENCOTNRE', '#################################'
+      respond_to do |format|
+        if @rate.update(rate_params)
+          format.html { redirect_to @rate.project,
+                        notice: 'Evaluación actualizada' }
+        else
+          format.html { redirect_to @rate.project,
+                        error: 'No se pudo actualizar tu evaliacion' }
+        end
+      end
     else
+      puts "NO ENCONTRADO #{current_user.id} y #{params[:rate][:project_id]}"
       @rate = Rate.new(rate_params)
       respond_to do |format|
         if @rate.save
