@@ -126,6 +126,11 @@
   }
 }
 
+input {
+  border: 0;
+  border-radius: 5px;
+}
+
 .btn {
   border-radius: 5px;
   font-family: ubuntu;
@@ -135,6 +140,11 @@
   background-color: #FF7153;
   color: white;
   font-size: 18px;
+}
+
+.btn-stats {
+  background-color: #FF7153;
+  color: white;
 }
 
 select {

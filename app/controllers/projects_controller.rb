@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(publish: true).order(updated_at: :desc)
+    @projects = Project.where(publish: true).order(end_date: :desc, rating: :desc)
     @mines = false
     if request.original_url.to_s.include?('users')
       @projects = Project.where(user_id: params[:user_id])
