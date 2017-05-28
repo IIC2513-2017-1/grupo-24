@@ -1,4 +1,4 @@
-<%= simple_form_for([:admin, project]) do |f| %>
+<%= simple_form_for(project) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,11 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <div class='project-text'>
+    <div class="field">
+      <%= f.input :title, label: 'Título' %>
+    </div>
 
-  <div class="field">
-    <%= f.input :title, label: 'Título' %>
+    <div class="field">
+      <%= f.input :description, label: 'Descripción', class: 'project-description' %>
+    </div>
+    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
   </div>
+  <div class='project-selectable'>
+    <div class="field">
+      <label>Imagen</label>
+        <%= f.file_field :image %>
+    </div>
 
-  <%= f.button :submit, 'Guardar categoría', class: "btn" %>
+    <div class="field">
+      <%= f.input :goal, label: 'Monto necesario' %>
+    </div>
+
+    <div class="field">
+      <%= f.input :publish, label: '¿Publicar?' %>
+    </div>
+
+    <div class="field">
+      <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
+    </div>
+  </div>
 
 <% end %>

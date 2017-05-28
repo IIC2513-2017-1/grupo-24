@@ -1,6 +1,6 @@
-<h1>Editar Proyecto</h1>
-
-<%= render 'form', project: @project %>
-
-<%= link_to 'Show', admin_project_path(@project) %> |
-<%= link_to 'Back', admin_projects_path %>
+<div class='project-form'>
+  <h1>Editar Proyecto</h1>
+  <%= render 'form', project: @project %>
+</div>
+<%= link_to 'Ver proyecto', project_path(@project) %> |
+<%= link_to 'Volver', admin_projects_path %>
