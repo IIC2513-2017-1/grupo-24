@@ -33,12 +33,12 @@ $(document).on("turbolinks:load", function() {
   $('.category-btn').on('click', function(){
     category = $(this).data('');
     if ($(this).hasClass('active')){
-      $(this).css('background-color', 'white')
-      $(this).css('color', $(this).data('color') )
-      $(this).removeClass('active')
-    }else{
       $(this).css('background-color', $(this).data('color'))
       $(this).css('color', 'white')
+      $(this).removeClass('active')
+    }else{
+      $(this).css('background-color', 'white')
+      $(this).css('color', $(this).data('color') )
       $(this).addClass('active')
     }
     var arr = []
