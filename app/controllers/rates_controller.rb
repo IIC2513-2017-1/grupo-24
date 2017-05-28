@@ -6,7 +6,6 @@ class RatesController < ApplicationController
   def create
     @rate = Rate.find_by(user_id: current_user.id, project_id: params[:rate][:project_id])
     if @rate
-      puts 'LO ENCOTNRE', '#################################'
       respond_to do |format|
         if @rate.update(rate_params)
           format.html { redirect_to @rate.project,

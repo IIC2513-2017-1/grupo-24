@@ -1,9 +1,7 @@
 <h2> Resultados de búsqueda </h2>
-<% if @projects.size > 0 %>
-  <h4> Coincidencias en contenido: <%= @projects.size %> </h4>
-  <ol class="container">
-    <% @projects.each do |project| %>
-      <%= render partial: 'projects/preview', locals: { project: project, mines: false } %>
-    <% end %>
-  </ol>
-<% end %>
+<div id='search-container'>
+  <%= render partial: 'home/results', locals: { categories: @categories,
+                                                last_search: @last_search,
+                                                projects: @projects
+                                              } %>
+</div>

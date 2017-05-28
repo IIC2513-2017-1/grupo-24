@@ -4,16 +4,22 @@ class HomeController < ApplicationController
   end
 
   def search
-    @projects = []
-    if params[:classification] == 'Categoria'
-      @categories = Category.where('name ILIKE :search', search: params[:search])
-      @categories.each do |category|
-        category.projects.map { |project| @projects << project if project.publish }
-      end
-    else
-      query = params[:classification] == 'Contenido' ? 'description' : 'title'
-      @projects = Project.where("#{query} ILIKE :search AND publish = true",
-                                search: "%#{params[:search]}%")
+    @last_search = params[:search]
+    @categories = Category.all
+    @projects = Project.where("title ILIKE :search AND publish = true",
+                              search: "%#{params[:search]}%")
+  end
+
+  def category_filter
+    puts '########################################3', 'AQUIII'
+    @last_search = params[:search]
+    @categories = Category.all
+    @projects = Project.where("title ILIKE :search AND publish = true",
+                              search: "%#{params[:search]}%")
+                       .select {|project| params[:filters].include?(project.category.name)}
+    puts @projects.size
+    respond_to do |format|
+      format.js
     end
   end
 end

@@ -27,5 +27,28 @@ function showSlides(n) {
 }
 
 $(document).on("turbolinks:load", function() {
-  showSlides(slideIndex);
-})
+  if($('.slideshow-container').length){
+    showSlides(slideIndex);
+  }
+  $('.category-btn').on('click', function(){
+    category = $(this).data('');
+    if ($(this).hasClass('active')){
+      $(this).css('background-color', 'white')
+      $(this).css('color', $(this).data('color') )
+      $(this).removeClass('active')
+    }else{
+      $(this).css('background-color', $(this).data('color'))
+      $(this).css('color', 'white')
+      $(this).addClass('active')
+    }
+    var arr = []
+    $('.category-btn').each(function(){
+      if(!$(this).hasClass('active')){
+        arr.push($(this).attr('value'));
+      }
+    });
+   $.each($('[id*="category_"]'), function(i, hidden) {
+     $(this).val(arr);
+    });
+  });
+});
