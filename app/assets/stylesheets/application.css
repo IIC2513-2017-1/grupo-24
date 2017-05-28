@@ -103,7 +103,7 @@ nav {
  }
 
 div.input-append {
-  vertical-align: middle;
+  margin-left: 20px;
 }
  .search-text {
    border-radius: 8px;

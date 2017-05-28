@@ -33,13 +33,15 @@ $(document).on("turbolinks:load", function() {
   $('.category-btn').on('click', function(){
     category = $(this).data('');
     if ($(this).hasClass('active')){
-      $(this).css('background-color', $(this).data('color'))
-      $(this).css('color', 'white')
-      $(this).removeClass('active')
+      $(this).css('background-color', $(this).data('color'));
+      $(this).css('color', 'white');
+      $(this).css('box-shadow', '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)');
+      $(this).removeClass('active');
     }else{
-      $(this).css('background-color', 'white')
-      $(this).css('color', $(this).data('color') )
-      $(this).addClass('active')
+      $(this).css('background-color', 'white');
+      $(this).css('color', $(this).data('color') );
+      $(this).css('box-shadow');
+      $(this).addClass('active');
     }
     var arr = []
     $('.category-btn').each(function(){
