@@ -1,4 +1,7 @@
 <div class="project-stats">
+  <h3>Llevamos<br>
+    <%="#{number_to_currency(project.donations.sum(&:ammount), unit: "CLP$", delimiter: ".", format: "%u%n")}
+  /#{number_to_currency(project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")}"%></h3>
   <p>
     <% if current_user %>
       <%= form_for Rate.new, {controller: 'rates', action: "create" } do |f| %>
