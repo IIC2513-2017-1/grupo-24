@@ -17,10 +17,23 @@
 
 /* COLORES: https://color.adobe.com/es/Cfunding-PPT-color-theme-1085471/
   Azul claro: rgba(83,255,190, 0.4)
-
+  Azul oscuro: #16B278
   Rojo claro: #FF7153
   Rojo oscuro: #b24028
 */
+
+h1, h2, h3, h4, h5, p, a, td, th {
+  font-family: ubuntu;
+}
+
+.default-form {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(83,255,190, 0.4);
+  padding: 25px;
+  border-radius: 10px;
+}
 
 .main-container {
   padding-top: 40px;
@@ -88,8 +101,9 @@ nav {
  }
 
  .dropdown-content a {
-     color: black;
+     color: white;
      padding: 12px 16px;
+     font-family: ubuntu;
      text-decoration: none;
      display: block;
      border-top: #FF7153 thin solid;

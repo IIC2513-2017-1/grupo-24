@@ -3,6 +3,9 @@ class Project < ApplicationRecord
   belongs_to :category
 
   has_attached_file :image, styles: { original: {}}
+  has_many :donations, dependent: :nullify
+  has_many :comments, dependent: :destroy
+  has_many :rates, dependent: :destroy
 
   validates :title, :description, :goal, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

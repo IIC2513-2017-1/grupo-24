@@ -1,7 +1,11 @@
 class User < ApplicationRecord
-
+  # TODO: check nullifies
   has_many :projects, dependent: :destroy
-  has_many :donations
+  has_many :donations, dependent: :nullify
+  has_many :donations, dependent: :nullify
+  has_many :comments, dependent: :destroy
+  has_many :rates, dependent: :nullify
+
   has_secure_password
   has_attached_file :avatar, styles: { original: {} }
 

@@ -145,6 +145,10 @@ select {
    padding-left: 15px;
 }
 
+input[type=file] {
+  font-family: ubuntu;
+}
+
 label {
   font-family: ubuntu;
   font-weight: lighter;
