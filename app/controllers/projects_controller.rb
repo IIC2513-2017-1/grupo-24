@@ -87,8 +87,8 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project)
           .permit(:goal, :title, :description, :user_id, :category_id, :image,
-                  :publish)
-          .merge(user_id: current_user.id)
+                  :publish, :end_date)
+          .merge(user_id: current_user.id, achieve: false)
 
   end
 

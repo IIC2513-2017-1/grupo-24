@@ -1,0 +1,13 @@
+<p>
+  Estimado <%= @user.full_name %>,
+</p>
+
+<p>
+  Con orgullo le informamos el project <i><%=@project.title%> de <%@project.user.full_name%>
+  en el cual ud. cooperó, ha superado la meta propuesta de <%= number_to_currency(@project.goal, unit: "CLP$", delimiter: ".", format: "%u%n") %>
+</p>
+
+<p>
+  Se despide atentamente,<br/>
+  Equipo All-for-one
+</p>
