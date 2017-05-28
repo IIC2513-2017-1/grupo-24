@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Secured
 
-  before_action :logged_in?, except: [:new]
+  before_action :logged_in?, except: [:new, :create]
   before_action :is_admin?, only: [:index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -31,8 +31,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        UserMailer.new_user_email(user).deliver_later
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        UserMailer.new_user_email(@user).deliver_later
+        session[:user_id] = @user.id
+        format.html { redirect_to @user, notice: 'Usuario creado' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
