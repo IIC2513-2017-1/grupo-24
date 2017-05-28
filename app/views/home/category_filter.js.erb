@@ -1,3 +1,1 @@
-console.log('aesfas');
-affdsfas
-$('#search-container').html("<%= render partial: 'home/results', locals: { categories: @categories, last_search: @last_search, projects: @projects } %>");
+$('#search-container').html("<%= escape_javascript render partial: 'home/results', locals: { projects: @projects } %>");

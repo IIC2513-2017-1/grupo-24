@@ -1,7 +1,12 @@
 <h2> Resultados de búsqueda </h2>
+<big>Filtrar por:</big>
+<% @categories.each_with_index do |category, index|%>
+  <%= form_tag category_filter_path, data: {type: 'script'}, remote: true, style: "display:inline-block;margin: 0 5px 5px 0;" do %>
+    <%= hidden_field_tag "filters", nil, id: 'category_'+category.id.to_s %>
+    <%= hidden_field_tag "search", @last_search %>
+    <%= submit_tag category.name, required: true, class: "category-btn btn" %>
+  <% end %>
+<% end %>
 <div id='search-container'>
-  <%= render partial: 'home/results', locals: { categories: @categories,
-                                                last_search: @last_search,
-                                                projects: @projects
-                                              } %>
+  <%= render partial: 'home/results', locals: { projects: @projects } %>
 </div>
