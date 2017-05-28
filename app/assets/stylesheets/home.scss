@@ -170,6 +170,11 @@ input[type=file] {
   box-shadow: none;
 }
 
+input.boolean {
+  width: auto;
+  box-shadow: none;
+}
+
 label {
   font-family: ubuntu;
   font-weight: lighter;

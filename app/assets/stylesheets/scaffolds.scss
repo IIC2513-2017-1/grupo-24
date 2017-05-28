@@ -55,18 +55,22 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
   display: table;
+  .error {
+    color: #b24028;
+    font-weight: bolder;
+    display: block;
+    border-radius: 5px;
+  }
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #b24028;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
-
+  background-color: rgba(0,0,0,0);
   h2 {
     text-align: left;
     font-weight: bold;
@@ -74,13 +78,14 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
-    background-color: #c00;
+    background-color: #b24028;
     color: #fff;
   }
 
   ul li {
     font-size: 12px;
     list-style: square;
+    font-family: ubuntu;
   }
 }
 
