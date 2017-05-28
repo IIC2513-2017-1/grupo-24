@@ -11,4 +11,9 @@ class Project < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_uniqueness_of :title, scope: [:user]
 
+  before_create :unachieved
+
+  def unachieved
+    self.achieve = false
+  end
 end

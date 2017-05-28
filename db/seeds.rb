@@ -10,6 +10,7 @@ Comment.destroy_all
 User.destroy_all
 Category.destroy_all
 Project.destroy_all
+Rate.destroy_all
 
 # Usuarios conocidos
 User.find_or_create_by(email: 'admin@admin.com', password: '123123',
@@ -54,12 +55,13 @@ Category.find_or_create_by(name: 'Armas')
                  description: Faker::Lorem.paragraph(2),
                  user_id: user.id,
                  category_id: category.id,
-                 publish: true,
-                 rating: 0
+                 publish: [true, false].sample,
+                 rating: 0,
+                 end_date: Date.today + rand(10).days
                  )
 end
 # Comments
-40.times do
+50.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Project.count)
@@ -79,4 +81,14 @@ end
                  ammount: rand*project.goal,
                  project_id: project.id,
                  )
+end
+
+100.times do
+  offset = rand(User.count)
+  user = User.offset(offset).first
+  offset2 = rand(Project.count)
+  project = Project.offset(offset2).first
+  Rate.find_or_create_by(user_id: user.id,
+              project_id: project.id,
+              grade: [0,1,2,3,4,5].sample)
 end
