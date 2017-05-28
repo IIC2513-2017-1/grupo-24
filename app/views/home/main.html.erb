@@ -1,13 +1,3 @@
-<div id="page">
-  <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
-  <% end %>
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
-  <%= yield %>
-</div>
-
 <div class="slideshow-container">
   <% size = @projects.size %>
   <% @projects.each_with_index do |project, i| %>
