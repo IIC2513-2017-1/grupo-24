@@ -101,6 +101,13 @@ nav {
      display: block;
  }
 
+div.input-append {
+  vertical-align: middle;
+}
+ .search-text {
+   border-radius: 10px;
+  }
+
 /* FOOTER */
 
 

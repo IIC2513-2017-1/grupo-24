@@ -20,8 +20,10 @@
       max-width: inherit;
     }
     .project-title {
-      color: #b24028;
       text-align: center;
+      a {
+        color: #b24028;
+      }
       :visited {
         color: #b24028;
       }
