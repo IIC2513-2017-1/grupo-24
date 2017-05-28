@@ -10,34 +10,35 @@
       </ul>
     </div>
   <% end %>
+  <div class='project-text'>
+    <div class="field">
+      <%= f.input :title, label: 'Título' %>
+    </div>
 
-  <div class="field">
-    <%= f.input :title, label: 'Título' %>
+    <div class="field">
+      <%= f.input :description, label: 'Descripción', class: 'project-description' %>
+    </div>
+    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
   </div>
+  <div class='project-selectable'>
+    <div class="field">
+      <label>Imagen</label>
+      <span class="btn file-btn" style="width:100%;">
+        <%= f.file_field :image %>
+      </span>
+    </div>
 
-  <div class="field">
-    <label>Imagen</label>
-    <span class="btn" style="width:100%;">
-      <%= f.file_field :image %>
-    </span>
+    <div class="field">
+      <%= f.input :goal, label: 'Monto necesario' %>
+    </div>
+
+    <div class="field">
+      <%= f.input :publish, label: '¿Publicar?' %>
+    </div>
+
+    <div class="field">
+      <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.input :description, label: 'Descripción', class: 'project-description' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :goal, label: 'Monto necesario' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :publish, label: '¿Publicar?' %>
-  </div>
-
-  <div class="field">
-    <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
-  </div>
-
-  <%= f.button :submit, 'Guardar proyecto', class: "btn" %>
 
 <% end %>

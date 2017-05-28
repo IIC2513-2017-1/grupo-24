@@ -4,6 +4,26 @@
 .container {
   text-align: center;
 }
+
+.project-form {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(83,255,190, 0.4);
+  padding: 25px;
+  border-radius: 10px;
+  div.project-text {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+  div.project-selectable {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+  }
+}
+
 .rcorners1 {
     margin: 30px;
     border-radius: 10px;

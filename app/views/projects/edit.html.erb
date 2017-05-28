@@ -1,3 +1,5 @@
-<h1>Editar Proyecto</h1>
-
-<%= render 'form', project: @project %>
+<div class='project-form'>
+  <h1>Editar projecto</h1>
+  <%= render 'form', project: @project %>
+</div>
+<%= link_to 'Ir a mis projectos', user_projects_path(current_user) %>

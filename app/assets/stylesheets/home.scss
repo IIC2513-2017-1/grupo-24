@@ -94,3 +94,58 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+/* FORMS */
+.string {
+  border: 0;
+  border-radius: 5px;
+  input.string {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+  }
+}
+
+.float {
+  border: 0;
+  border-radius: 5px;
+  input.float {
+    width: 50%;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+  }
+}
+
+.text {
+  border: 0;
+  border-radius: 5px;
+  textarea.text {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+    height: 120px;
+    width: 80%;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: ubuntu;
+}
+
+.btn-success {
+  background-color: #FF7153;
+  color: white;
+  font-size: 18px;
+}
+
+select {
+   color: #fff;
+   font-family: ubuntu;
+   font-size: 15px;
+   background-color: #FF7153;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+
+label {
+  font-family: ubuntu;
+  font-weight: lighter;
+}
