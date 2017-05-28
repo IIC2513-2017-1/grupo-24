@@ -5,6 +5,29 @@ div.form {
   width: 80%;
 }
 
+.user-profile {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(83,255,190, 0.4);
+  padding: 25px;
+  border-radius: 10px;
+  .avatar-display {
+    display: table;
+    margin: 0 auto;
+  }
+  .user-info {
+    width: 50%;
+    vertical-align: top;
+    display: inline-block;
+  }
+  .user-participation {
+    width: auto;
+    vertical-align: top;
+    display: inline-block;
+  }
+}
+
 .form-fields {
   width: 60%;
   display: inline-block;

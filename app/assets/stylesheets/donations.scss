@@ -1,3 +1,38 @@
 // Place all the styles related to the donations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.donations-container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(83,255,190, 0.4);
+  padding: 25px;
+  border-radius: 10px;
+  .donation {
+    margin: 30px;
+    border-radius: 10px;
+    background: rgba(83,255,190, 0.6);
+    padding: 20px;
+    padding-left: 1%;
+    width: 25%;
+    height: 400px;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    a {
+      color: #b24028;
+    }
+    :visited {
+      color: #b24028;
+    }
+    a:hover {
+      background-color: rgba(0,0,0,0);
+    }
+    img {
+      height: 30%;
+      width: auto;
+      max-width: inherit;
+    }
+  }
+}

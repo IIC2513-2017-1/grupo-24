@@ -1,7 +1,15 @@
-<h1>Donaciones de <%= @user.full_name %></h1>
-<% @donations.each do |donation| %>
-<h3><%=link_to donation.project.title, project_path(donation.project) %>
-  <%= @user == current_user ? ' - '+number_to_currency(donation.ammount, unit: "CLP$", delimiter: ".", format: "%u%n") : '' %>
-</h3>
-<h5>De <strong><%= donation.project.user.full_name %></h5>
-<% end %>
+<div class='donations-container'>
+  <h1>Donaciones de <%= @user.full_name %></h1>
+  <% @donations.each do |donation| %>
+  <div class='donation'>
+    <h3><%=link_to donation.project.title, project_path(donation.project) %><br>
+      <%= @user == current_user ? number_to_currency(donation.ammount, unit: "CLP$", delimiter: ".", format: "%u%n") : '' %>
+    </h3>
+    <%= image_tag donation.project.image.exists? ? donation.project.image.url : 'zelda.jpg' %>
+    <h4>
+      <%= truncate(donation.project.description, length: 200, omission: '...') %>
+    </h4>
+    <h5>De <strong><%= donation.project.user.full_name %></h5>
+  </div>
+  <% end %>
+</div>
