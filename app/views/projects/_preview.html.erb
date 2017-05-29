@@ -1,5 +1,5 @@
 <div class="rcorners1">
-  <%= link_to 'X', admin_project_path(project), method: :delete, data: { confirm: '¿Estas seguro?' }, class: 'btn-delete' if mines%>
+  <%= link_to 'X', project_path(project), method: :delete, data: { confirm: '¿Estas seguro?' }, class: 'btn-delete' if mines%>
   <%= image_tag project.image.exists? ? project.image.url : 'zelda.jpg' %>
   <h3 class="project-title"><%=link_to project.title, mines ? edit_project_path(project) : project_path(project) %>
     <br><%= project.category.name %>
