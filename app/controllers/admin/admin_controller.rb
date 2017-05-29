@@ -5,8 +5,8 @@ module Admin
     private
     def verify_admin
       unless current_user.admin
-        redirect_to authenticated_root_path
         flash[:error] = "No tiene permisos para acceder a esta página."
+        redirect_to root_path
       end
     end
   end
