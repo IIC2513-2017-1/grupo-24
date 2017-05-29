@@ -6,10 +6,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     respond_to do |format|
-      if current_user && @comment.save
+      if @comment.save
         format.html { redirect_to project_path(@comment.project) }
       else
-        flash.now[:error] = 'Debes autentificarte antes de realizar una donacion'
+        flash[:error] = 'Tu comentario debe poseer contenido' unless @comment.content.present?
+        flash[:error] = 'Debes autentificarte antes de realizar una donacion' unless @comment.user_id.present?
+        format.html {redirect_to :back}
       end
     end
   end
