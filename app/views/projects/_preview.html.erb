@@ -1,4 +1,5 @@
 <div class="rcorners1">
+  <%= link_to 'X', admin_project_path(project), method: :delete, data: { confirm: '¿Estas seguro?' }, class: 'btn-delete' if mines%>
   <%= image_tag project.image.exists? ? project.image.url : 'zelda.jpg' %>
   <h3 class="project-title"><%=link_to project.title, mines ? edit_project_path(project) : project_path(project) %>
     <br><%= project.category.name %>
@@ -7,6 +8,7 @@
     <%= truncate(project.description, length: 200, omission: '...') %>
   </h4>
   <span class="author-info">
-    <strong><u> <%= mines ? "Publicado: #{project.publish ? 'Si' : 'No'}" : link_to(project.user.full_name, project.user) %> </u></strong>
+    <strong><u> <%= mines ? "Publicado: #{project.publish ? 'Si' : 'No'}" : link_to(project.user.full_name, project.user) %> </u></strong><br>
+    Hasta el <%= l(project.end_date, format: '%d/%m') %>
   </span>
 </div>

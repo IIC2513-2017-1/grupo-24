@@ -8,7 +8,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(publish: true).order(end_date: :desc, rating: :desc)
+    @projects = Project.where('publish = true AND end_date >= :today',
+                              today: Date.today)
+                       .order(end_date: :desc, rating: :desc)
     @mines = false
     if request.original_url.to_s.include?('users')
       @projects = Project.where(user_id: params[:user_id])
@@ -42,8 +44,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to user_project(current_user, @project),
-                      notice: 'Project was successfully created.' }
+        format.html { redirect_to @project,
+                      notice: 'Proyecto creado exitosamente.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -69,9 +71,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    url = @project.user == current_user ? projects_path : user_projects_path(current_user)
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

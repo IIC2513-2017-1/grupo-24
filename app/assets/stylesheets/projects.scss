@@ -33,6 +33,7 @@
     width: 25%;
     height: 400px;
     vertical-align: top;
+    overflow: hidden;
     display: inline-block;
     img {
       height: 40%;
@@ -60,6 +61,16 @@
         color: inherit;
         background-color: rgba(0,0,0,0);
       }
+    }
+    a.btn-delete {
+      display:block;
+      float: left;
+      color: gray;
+      text-decoration: none;
+    }
+    a:hover {
+      color: inherit;
+      background-color: inherit;
     }
 }
 

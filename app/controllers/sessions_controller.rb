@@ -5,14 +5,15 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Login successful.'
+      redirect_to root_path, notice: 'Inicio de sesión exitoso'
     else
-      redirect_to(new_session_path, alert: 'Wrong email or password.')
+      flash[:error] = 'Usuario o contraseña errónea'
+      redirect_to new_session_path
     end
   end
 
   def destroy
     reset_session
-    redirect_to root_path, notice: 'Logout successful.'
+    redirect_to root_path, notice: 'Su sesión ha concluido'
   end
 end
