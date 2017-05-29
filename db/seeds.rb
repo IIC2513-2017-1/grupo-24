@@ -26,7 +26,7 @@ User.find_or_create_by(email: 'user@user.com', password: '123123',
                       username: 'user', name: 'Usuario',
                       last_name: 'Normal', admin: false)
 # Usuarios desconocidos para poblar el enviroment
-15.times do
+25.times do
   password = Faker::Internet.password(8)
   User.create(email: Faker::Internet.unique.email,
               username: Faker::Internet.unique.user_name,
@@ -45,7 +45,7 @@ Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
 # Projects
-50.times do
+80.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Category.count)
@@ -61,7 +61,7 @@ Category.find_or_create_by(name: 'Armas')
                  )
 end
 # Comments
-50.times do
+100.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Project.count)
@@ -72,7 +72,7 @@ end
                  )
 end
 # Donations
-40.times do
+50.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Project.count)
