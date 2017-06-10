@@ -116,5 +116,8 @@ div.comments {
 }
 
 img.project-view {
-  width: inherit;
+  height: 430px;
+  width: auto;
+  max-width: 95%;
+  max-height: 330px;
 }
