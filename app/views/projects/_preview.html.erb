@@ -5,7 +5,7 @@
     <br><%= project.category.name %>
   </h3>
   <h4>
-    <%= truncate(project.description, length: 200, omission: '...') %>
+    <%= truncate(project.description, length: 150, omission: '...') %>
   </h4>
   <span class="author-info">
     <strong><u> <%= mines ? "Publicado: #{project.publish ? 'Si' : 'No'}" : link_to(project.user.full_name, project.user) %> </u></strong><br>

@@ -22,12 +22,14 @@
   </div>
 
   <div class="field">
+    <%= f.input :end_date, label: 'Fecha límite' %>
+  </div>
+  <div class="field">
     <%= f.input :description, label: 'Descripción', class: 'project-description' %>
   </div>
   <div class="field half">
     <%= f.input :goal, label: 'Monto necesario' %>
   </div>
-
   <div class="field extra">
     <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
   </div>
