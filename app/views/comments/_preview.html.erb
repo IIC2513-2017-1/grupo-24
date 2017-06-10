@@ -1,0 +1,8 @@
+<div id="comment-list" class='comments'>
+  <h2> Comentarios </h2>
+  <% project.comments.order(created_at: :asc).each do |comment| %>
+    <p><small><strong><%= comment.user.full_name %>: </strong></small><%= comment.content %><br>
+      <small><%= l(comment.created_at, format: '%d/%M%Y - %R') %></small>
+    </p>
+  <% end %>
+</div>

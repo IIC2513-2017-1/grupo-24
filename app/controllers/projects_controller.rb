@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
     unless @project.publish || current_user == @project.user
       redirect_to root_path, alert: 'No esta disponible'
     end
-    @comments = Comment.where(project_id: @project.id)
   end
 
   # GET /projects/new

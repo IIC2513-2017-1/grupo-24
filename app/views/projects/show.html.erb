@@ -3,20 +3,13 @@
   <%= render partial: 'projects/content', locals: {project: @project} %>
   <%= render partial: 'projects/stats', locals: {project: @project} %>
 </div>
-<div class='comments'>
-  <h2> Comentarios </h2>
-  <% @comments.each do |comment| %>
-    <p><small><strong><%= comment.user.full_name %>: </strong></small><%= comment.content %><br>
-      <small><%= l(comment.created_at, format: '%d/%M%Y - %R') %></small>
-    </p>
-  <% end %>
-</div>
+<%= render partial: 'comments/preview', locals: {project: @project} %>
 <% if current_user %>
   <div class="comments-form">
-    <%= form_for Comment.new, {controller: 'comments', action: "create" } do |f| %>
+    <%= form_for Comment.new, {controller: 'comments', action: "create", remote: true} do |f| %>
       Comentar: <%= f.text_field(:content, requiered: true, class: 'comment-text') %>
       <%= f.hidden_field(:project_id, value: @project.id) %>
-      <%= f.submit("Publicar", class: 'btn btn-publish') %>
+      <%= f.submit("Comentar", class: 'btn btn-publish') %>
     <% end %>
   </div>
 <% end %>

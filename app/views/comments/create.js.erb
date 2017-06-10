@@ -1,0 +1,2 @@
+$('#comment_content').val('')
+$('#comment-list').html("<%= escape_javascript render partial: 'comments/preview', locals: { project: @project } %>");

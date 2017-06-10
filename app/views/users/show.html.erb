@@ -1,5 +1,6 @@
 <% if current_user == @user %>
-<%= link_to 'Editar', edit_user_path(@user) %>
+<%= link_to 'Editar', edit_user_path(@user) %><br>
+<%= link_to 'Cambiar contraseña', edit_password_path(@user) %>
 <% end %>
 <div class="user-profile">
   <div class='avatar-display'>
