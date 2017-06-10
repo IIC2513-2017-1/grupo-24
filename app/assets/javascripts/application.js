@@ -16,6 +16,15 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
+  $('.alert').fadeOut(4000);
+  $('.alert').on("mouseover", function(e) {
+    $(this).stop(true).fadeIn(0);
+  });
+
+  // On mouse leave, start fade again
+  $('.alert').on("mouseleave", function(e) {
+    $(this).fadeOut(4000);
+  });
   $('#search-btn').click(function(){
     if ($('#search-input').val().length != 0){
       window.location.href='/buscar/' + $('#search-input').val();

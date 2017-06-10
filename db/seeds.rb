@@ -44,6 +44,7 @@ Category.find_or_create_by(name: 'Artesanía')
 Category.find_or_create_by(name: 'Comics')
 Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
+
 # Projects
 80.times do
   offset = rand(User.count)
@@ -60,6 +61,7 @@ Category.find_or_create_by(name: 'Armas')
                  end_date: Date.today + rand(10).days
                  )
 end
+
 # Comments
 100.times do
   offset = rand(User.count)
@@ -71,6 +73,7 @@ end
                  project_id: project.id
                  )
 end
+
 # Donations
 50.times do
   offset = rand(User.count)
@@ -83,6 +86,7 @@ end
                  )
 end
 
+# Rates
 100.times do
   offset = rand(User.count)
   user = User.offset(offset).first
