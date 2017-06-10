@@ -23,6 +23,7 @@
           <%= link_to 'Panel de administracion', admin_path %>
         <% end %>
         <%= link_to 'Editar cuenta', edit_user_path(current_user) %>
+        <%= link_to 'Cambiar contraseña', edit_password_path(current_user) %>
         <% if current_user.projects.size > 0 %>
           <%= link_to 'Mis proyectos', user_projects_path(current_user) %>
         <% end %>

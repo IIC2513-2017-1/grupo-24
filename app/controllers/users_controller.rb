@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   before_action :logged_in?, except: [:new, :create]
   before_action :is_admin?, only: [:index]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :change_password, :edit_password]
+  before_action :check_current, only: [:edit, :update, :change_password, :edit_password]
   # GET /users
   # GET /users.json
   def index
@@ -22,12 +22,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-    if current_user != @user
-      flash[:error] = 'No puedes editar un perfil ajeno'
-      redirect_to root_path
-    end
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -50,12 +45,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if current_user != @user
-      flash[:error] = 'No puedes editar un perfil ajeno'
-      redirect_to root_path
-    end
     respond_to do |format|
-      if @user.authenticate(params[:user][:password]) && @user.update(user_params)
+      if @user.update(user_params)
         format.html { redirect_to @user, notice: 'Usuario actualizado correctamente' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -75,6 +66,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_password
+    respond_to do |format|
+      if @user.authenticate(params[:user][:old_password])
+        if @user.update(params.require(:user).permit(:password, :password_confirmation))
+          format.html { redirect_to @user, notice: 'Contraseña cambiada' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          flash.now[:error] = 'Las contraseñas no coinciden'
+          format.html { render :change_password }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      else
+        flash.now[:error] = 'Contraseña errónea'
+        format.html { render :change_password, error: 'Contraseña errónea' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def change_password; end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -85,5 +97,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :name, :last_name,
                                    :username, :avatar)
+    end
+
+    def check_current
+      if current_user != @user
+        flash[:error] = 'No puedes editar un perfil ajeno'
+        redirect_to root_path
+      end
     end
 end
