@@ -23,12 +23,17 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user != @user
+      flash[:error] = 'No puedes editar un perfil ajeno'
+      redirect_to root_path
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.admin = false
     respond_to do |format|
       if @user.save
         UserMailer.new_user_email(@user).deliver_later
@@ -45,6 +50,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if current_user != @user
+      flash[:error] = 'No puedes editar un perfil ajeno'
+      redirect_to root_path
+    end
     respond_to do |format|
       if @user.authenticate(params[:user][:password]) && @user.update(user_params)
         format.html { redirect_to @user, notice: 'Usuario actualizado correctamente' }
@@ -76,6 +85,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :name, :last_name,
                                    :username, :avatar)
-                           .merge(admin: false)
     end
 end

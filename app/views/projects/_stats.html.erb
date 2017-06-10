@@ -16,7 +16,7 @@
     <% end %>
   </p>
   <strong>Creador:</strong>
-  <%= project.user.full_name %>
+  <%= link_to project.user.full_name, project.user %>
   <p>
     <strong>Meta:</strong>
     <%= number_to_currency(project.goal, unit: "CLP$", delimiter: ".", format: "%u%n")%>
