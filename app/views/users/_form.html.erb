@@ -19,14 +19,14 @@
       <div class="field">
         <%= f.input :email, required: true, type: 'email', label: 'Correo electrónico' %>
       </div>
-
+      <% unless edit %>
       <div class="field">
         <%= f.input :password, required: true, type: 'password', label: 'Contraseña' %>
       </div>
       <div class="field">
         <%= f.input :password_confirmation, required: true, type: 'password', label: 'Confirmar contraseña' %>
       </div>
-
+      <% end %>
       <div class="field">
         <%= f.input :name, label: 'Nombres' %>
       </div>
