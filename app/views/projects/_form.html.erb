@@ -10,33 +10,27 @@
       </ul>
     </div>
   <% end %>
-  <div class='project-text'>
-    <div class="field">
-      <%= f.input :title, label: 'Título' %>
-    </div>
-
-    <div class="field">
-      <%= f.input :description, label: 'Descripción', class: 'project-description' %>
-    </div>
-    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
+  <div class="field">
+    <%= f.input :title, label: 'Título' %>
   </div>
-  <div class='project-selectable'>
-    <div class="field">
-      <label>Imagen</label>
-        <%= f.file_field :image %>
-    </div>
-
-    <div class="field">
-      <%= f.input :goal, label: 'Monto necesario' %>
-    </div>
-
-    <div class="field">
-      <%= f.input :publish, label: '¿Publicar?' %>
-    </div>
-
-    <div class="field">
-      <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
-    </div>
+  <div class="field half">
+    <label>Imagen</label>
+    <%= f.file_field :image %>
   </div>
+  <div class="field extra check">
+    <%= f.input :publish, label: '¿Publicar?' %>
+  </div>
+
+  <div class="field">
+    <%= f.input :description, label: 'Descripción', class: 'project-description' %>
+  </div>
+  <div class="field half">
+    <%= f.input :goal, label: 'Monto necesario' %>
+  </div>
+
+  <div class="field extra">
+    <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
+  </div>
+  <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
 
 <% end %>
