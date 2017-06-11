@@ -158,6 +158,7 @@ div.input-append {
  .search-text {
    border-radius: 8px;
    margin-top: 12px;
+   width: 200px;
   }
   .btn-search {
     border: 0;

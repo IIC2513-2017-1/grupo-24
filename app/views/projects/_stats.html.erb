@@ -24,7 +24,7 @@
   <% if project.end_date >= Date.today %>
     <h4>Tienes hasta <%= l(project.end_date, format: '%d/%m') %> para aportar</h4>
     <% if current_user %>
-    <%= form_for Donation.new, {controller: 'donations', action: "create" } do |f| %>
+    <%= form_for Donation.new, {controller: 'donations', action: "create", remote: true } do |f| %>
       <%= f.label(:q, "¿Quieres aportar en este proyecto?") %>
       <%= f.number_field :ammount, min: 0, required: true %>
       <%= f.hidden_field(:project_id, value: project.id) %>

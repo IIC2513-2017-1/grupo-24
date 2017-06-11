@@ -1,0 +1,10 @@
+$('#flashes').html("<%= escape_javascript render partial: 'layouts/flashes' %>");
+$('.alert').fadeOut(4000);
+$('.alert').on("mouseover", function(e) {
+  $(this).stop(true).fadeIn(0);
+});
+
+// On mouse leave, start fade again
+$('.alert').on("mouseleave", function(e) {
+  $(this).fadeOut(4000);
+});

@@ -13,12 +13,12 @@ class DonationsController < ApplicationController
     respond_to do |format|
       if @donation.save
         DonatorMailer.confirmation_email(@donation).deliver_later
-        format.html { redirect_to project_path(@donation.project),
-                      notice: 'Donación realizada' }
+        flash.now[:notice] = 'Donación realizada con éxito'
       else
-        format.html { redirect_to new_session_path,
-                      error: 'Debes autentificarte antes de realizar una donacion' }
+        flash.now[:error] = 'Hubo un error realizando la donación'
       end
+      format.js { render layout: false }
+      format.html {head :no_content }
     end
   end
 
