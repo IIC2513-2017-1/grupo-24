@@ -63,8 +63,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'https://all-for-one.herokuapp.com/',
-    user_name:            'a41adm',
+    domain:               'all-for-one.herokuapp.com',
+    user_name:            'a41adm@gmail.com',
     password:             'contrasegna',
     authentication:       'plain',
     enable_starttls_auto: true  }
