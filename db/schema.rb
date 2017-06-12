@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170528071009) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.float    "rating"
-    t.date     "end_date",           default: '2017-06-02'
+    t.date     "end_date",           default: '2017-06-03'
     t.boolean  "achieve",            default: false
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
