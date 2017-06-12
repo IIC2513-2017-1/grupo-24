@@ -12,8 +12,8 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     respond_to do |format|
       if @donation.save
-        DonatorMailer.confirmation_email(@donation).deliver_later
         flash.now[:notice] = 'Donación realizada con éxito'
+        send_mail
       else
         flash.now[:error] = 'Hubo un error realizando la donación'
       end
@@ -23,6 +23,18 @@ class DonationsController < ApplicationController
   end
 
   private
+
+  def send_mail
+    if !@donation.project.achieve &&
+    @donation.project.donations.sum(&:ammount) > @donation.project.goal
+      @donation.project.update(achieve: true)
+      @donation.project.donations.select(:user_id).distinct.each do |user|
+        DonatorMailer.goal_achieved(@donation.project, User.find_by(id: user))
+      end
+    else
+      DonatorMailer.confirmation_email(@donation).deliver_later
+    end
+  end
 
   def donation_params
     params.require(:donation).permit(:project_id, :ammount)
