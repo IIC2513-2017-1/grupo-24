@@ -125,3 +125,21 @@ img.project-view {
   max-width: 95%;
   max-height: 330px;
 }
+
+#myProgress {
+  border-radius: 10px;
+  border: black thin solid;
+  background-color: #b24028;
+}
+
+#myBar {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-weight: bolder;
+    width: 0px;
+    height: 30px;
+    background-color: rgba(83,255,190, 1);
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: #16B278;
+}
