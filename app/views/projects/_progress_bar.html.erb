@@ -1,0 +1,7 @@
+<div id="myProgress">
+  <% percentege = ((project.donations.sum(&:ammount)/project.goal)*100).to_i %>
+  <div id="myBar" data-percentage="<%= percentege %>" style="border-top-right-radius: <%= percentege>90 ? '10px' : '0px'%>;
+  border-bottom-right-radius: <%= percentege>90 ? '10px' : '0px'%>;">
+    <%= number_to_currency(project.donations.sum(&:ammount), unit: "CLP$", delimiter: ".", format: "%u%n") %>
+  </div>
+</div>

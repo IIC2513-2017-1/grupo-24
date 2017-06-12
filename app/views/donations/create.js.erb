@@ -1,4 +1,6 @@
 $('#flashes').html("<%= escape_javascript render partial: 'layouts/flashes' %>");
+$('#myProgress').html("<%= escape_javascript render partial: 'projects/progress_bar', locals: {project: @donation.project} %>");
+move($('#myBar').data('percentage'));
 $('.alert').fadeOut(4000);
 $('.alert').on("mouseover", function(e) {
   $(this).stop(true).fadeIn(0);
