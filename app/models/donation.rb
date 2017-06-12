@@ -9,7 +9,7 @@ class Donation < ApplicationRecord
     if !project.achieve && project.donations.sum(&:ammount) >= project.goal
       project.update(achieve: true)
       project.donations.group_by {|don| don.user_id}.each do |user, donation|
-        DonatorMailer.goal_achieved(project, donation.first.user).deliver_now
+        DonatorMailer.goal_achieved(project, donation.first.user).deliver_later
       end
     end
   end

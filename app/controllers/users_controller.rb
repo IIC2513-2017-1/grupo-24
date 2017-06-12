@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user.admin = false
     respond_to do |format|
       if @user.save
-        UserMailer.new_user_email(@user).deliver_now
+        UserMailer.new_user_email(@user).deliver_later
         session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'Usuario creado' }
         format.json { render :show, status: :created, location: @user }

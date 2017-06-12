@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     respond_to do |format|
       if @donation.save
-        DonatorMailer.confirmation_email(@donation).deliver_now
+        DonatorMailer.confirmation_email(@donation).deliver_later
         flash.now[:notice] = 'Donación realizada con éxito'
       else
         flash.now[:error] = 'Hubo un error realizando la donación'
