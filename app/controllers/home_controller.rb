@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def main
-    @projects = Project.all.order(id: :desc).limit(6)
+    @projects = Project.where(publish: true).order(id: :desc).limit(6)
   end
 
   def search

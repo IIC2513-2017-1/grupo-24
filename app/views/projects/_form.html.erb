@@ -10,29 +10,36 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.input :title, label: 'Título' %>
+  <div class='project-data'>
+    <div class="field">
+      <%= f.input :title, label: 'Título' %>
+    </div>
+    <div class="field">
+      <%= f.input :end_date, label: 'Fecha límite' %>
+    </div>
+    <div class="field">
+      <%= f.input :description, label: 'Descripción', class: 'project-description' %>
+    </div>
+    <div class="field half">
+      <%= f.input :goal, label: 'Monto necesario' %>
+    </div>
+    <div class="field extra">
+      <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
+    </div>
+    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
   </div>
-  <div class="field half">
-    <label>Imagen</label>
-    <%= f.file_field :image %>
+  <div class='project-selectables'>
+    <div class="field extra check">
+      <%= f.input :publish, label: '¿Publicar?' %>
+    </div>
+    <div class='avatar-display'>
+      <div class="field half">
+        <label>Elegir imagen</label>
+        <span class="btn" >
+          <%= f.file_field :image %>
+        </span><br>
+        <%= image_tag project.image.exists? ? project.image.url : 'zelda.jpg', class: 'edit-image' %>
+      </div>
+    </div>
   </div>
-  <div class="field extra check">
-    <%= f.input :publish, label: '¿Publicar?' %>
-  </div>
-
-  <div class="field">
-    <%= f.input :end_date, label: 'Fecha límite' %>
-  </div>
-  <div class="field">
-    <%= f.input :description, label: 'Descripción', class: 'project-description' %>
-  </div>
-  <div class="field half">
-    <%= f.input :goal, label: 'Monto necesario' %>
-  </div>
-  <div class="field extra">
-    <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
-  </div>
-  <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
-
 <% end %>

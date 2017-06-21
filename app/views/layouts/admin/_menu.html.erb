@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li><a class="<%= check_active(root_url) %>" href="<%= root_path %>">Inicio</a></li>
+    <li><a class="<%= check_active(admin_projects_url) %>" href="<%= admin_projects_path %>">Proyectos</a></li>
+    <li><a class="<%= check_active(admin_categories_url) %>" href="<%= admin_categories_path %>">Categorías</a></li>
+    <li><a class="<%= check_active(admin_users_url) %>" href="<%= admin_users_path %>">Usuarios</a></li>
+
+    <li class="admin-user"><a href="<%= user_path(current_user)%>"><%=current_user.full_name %></a></li>
+
+  </ul>
+</nav>

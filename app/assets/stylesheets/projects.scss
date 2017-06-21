@@ -1,17 +1,34 @@
 // Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container {
   text-align: center;
 }
 
 .project-form {
-  width: 60%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
   background: rgba(83,255,190, 0.4);
   padding: 35px;
   border-radius: 10px;
+  div.project-data{
+    width: 55%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  div.project-selectables{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    img.edit-image {
+      width: 100%;
+      height: auto;
+      max-width: inherit;
+      max-height: inherit;
+    }
+  }
+
   div.field.half{
     display: inline-block;
     vertical-align: top;

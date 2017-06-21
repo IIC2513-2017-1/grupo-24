@@ -18,3 +18,17 @@ function move(percentege) {
 $(document).on("turbolinks:load", function() {
   move($('#myBar').data('percentage'));
 });
+
+$(document).on('turbolinks:load page:restore', function(){
+  $('#project_image').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      img.src = file.target.result;
+      $('.edit-image').attr('src', img.src);
+    }
+    reader.readAsDataURL(image);
+  });
+});
