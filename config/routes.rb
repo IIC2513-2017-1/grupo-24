@@ -21,5 +21,12 @@ Rails.application.routes.draw do
   get '/users/:id/change_password', to: 'users#change_password', as: 'edit_password'
   post '/users/:id/change_password', to: 'users#edit_password', as: 'change_password'
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [:index, :create]
+      resources :users, only: [:show]
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
