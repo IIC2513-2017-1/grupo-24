@@ -155,16 +155,19 @@ nav {
 div.input-append {
   margin-left: 20px;
 }
- .search-text {
-   border-radius: 8px;
-   margin-top: 12px;
-   width: 200px;
-  }
-  .btn-search {
-    border: 0;
-    height: 20px;
-    background-color: rgba(0,0,0,0);
-  }
+.search-text {
+ width: 80%;
+ border-radius: 8px;
+ margin-top: 12px;
+}
+.btn-search {
+  border: 0;
+  height: 20px;
+  background-color: rgba(0,0,0,0);
+}
+.fa-search {
+  color: white;
+}
 
 /* FOOTER */
 

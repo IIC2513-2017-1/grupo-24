@@ -8,9 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where('publish = true AND end_date >= :today',
-                              today: Date.today)
-                       .order(end_date: :desc, rating: :desc)
+    @projects = Project.where(publish: true).order(end_date: :desc, rating: :desc)
     @mines = false
     if request.original_url.to_s.include?('users')
       @projects = Project.where(user_id: params[:user_id])
@@ -18,6 +16,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def get_all
+    if params[:all]
+      @projects = Project.where(publish: true).order(end_date: :desc, rating: :desc)
+    else
+      @projects = Project.where('publish = true AND end_date >= :today',
+                                today: Date.today)
+                         .order(end_date: :desc, rating: :desc)
+    end
+  end
   # GET /projects/1
   # GET /projects/1.json
   def show

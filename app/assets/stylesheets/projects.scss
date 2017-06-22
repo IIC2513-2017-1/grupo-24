@@ -95,6 +95,17 @@
     }
 }
 
+.rcorners1.expired {
+  background: #FF7153;
+  .project-title {
+    a {
+      color: #16B278;
+    }
+  }
+  .text-expired {
+    color: red;
+  }
+}
 .project-container {
   width: 100%;
   margin-bottom: 20px;
