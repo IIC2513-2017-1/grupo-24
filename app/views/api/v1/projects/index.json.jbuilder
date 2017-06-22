@@ -3,11 +3,10 @@
 json.array! @projects do |project|
   json.id project.id
   json.title project.title
-  json.goal project.goal
-  json.description project.description
+  json.url api_v1_projects_url(project)
   json.user do
     json.email project.user.email
-    json.first_name project.user.name
-    json.last_name project.user.last_name
+    json.first_name project.user.name + " " + project.user.last_name
+    json.url api_v1_user_url(project.user)
   end
 end
