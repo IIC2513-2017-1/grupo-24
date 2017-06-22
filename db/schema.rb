@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528071009) do
+ActiveRecord::Schema.define(version: 20170622231625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170528071009) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.float    "rating"
-    t.date     "end_date",           default: '2017-06-03'
+    t.date     "end_date",           default: '2017-06-02'
     t.boolean  "achieve",            default: false
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20170528071009) do
     t.string   "email"
     t.string   "password"
     t.string   "name"
-    t.string   "token"
     t.string   "last_name"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -87,6 +86,8 @@ ActiveRecord::Schema.define(version: 20170528071009) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_udpated_at"
+    t.string   "token"
+    t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
   add_foreign_key "comments", "projects"
