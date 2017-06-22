@@ -13,18 +13,25 @@ Project.destroy_all
 Rate.destroy_all
 
 # Usuarios conocidos
-User.find_or_create_by(email: 'admin@admin.com', password: '123123',
+u1 = User.find_or_create_by(email: 'admin@admin.com', password: '123123',
                        username: 'admin', name: 'Administrador',
                        last_name: 'Admin', admin: true)
-User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
+u1.generate_token_and_save
+
+u2 = User.find_or_create_by(email: 'jicortes2@uc.cl', password: '123123',
                       username: 'jicortes2', name: 'Juan Ignacio',
                       last_name: 'Cortés Vergara', admin: true)
-User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
+u2.generate_token_and_save
+
+u3 = User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
                       username: 'abulnes1', name: 'Arturo',
                       last_name: 'Bulnes Ruiz', admin: true)
-User.find_or_create_by(email: 'user@user.com', password: '123123',
+u3.generate_token_and_save
+
+u4 = User.find_or_create_by(email: 'user@user.com', password: '123123',
                       username: 'user', name: 'Usuario',
                       last_name: 'Normal', admin: false)
+u4.generate_token_and_save
 # Usuarios desconocidos para poblar el enviroment
 25.times do
   password = Faker::Internet.password(8)

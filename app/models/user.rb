@@ -23,4 +23,11 @@ class User < ApplicationRecord
     email
   end
 
+  def generate_token_and_save
+    loop do
+      self.token = SecureRandom.hex(64)
+      break if save
+    end
+  end
+
 end
