@@ -17,6 +17,10 @@ module Api::V1
       @project = Project.find(params[:id])
     end
 
+    def edit
+      @project = Project.find(params[:id])
+      @project.update(project_params)
+    end
 
     private
 
