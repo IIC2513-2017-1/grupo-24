@@ -147,8 +147,16 @@ div.comments {
   word-wrap: break-word;
 }
 
-.project-view {
-  height: auto;
+iframe.project-view {
+  height: 330px;
+  width: 100%;
+  max-width: 100%;
+  max-height: 330px;
+}
+
+img.project-view {
+  height: 330px;
+  width: auto;
   max-width: 100%;
   max-height: 330px;
 }
