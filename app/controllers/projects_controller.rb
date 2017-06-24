@@ -31,7 +31,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     unless @project.publish || current_user == @project.user
-      redirect_to root_path, alert: 'No esta disponible'
+      flash[:warning] = 'Proyecto no disponible'
+      redirect_to root_path
     end
   end
 
@@ -42,7 +43,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    redirect_to :back, alert: 'Acceso restringido' unless @project.user == current_user
+    unless @project.user == current_user
+      flash[:error] = 'Acceso restringido'
+      redirect_to :back
+    end
   end
 
   # POST /projects

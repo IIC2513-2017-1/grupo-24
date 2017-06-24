@@ -1,5 +1,6 @@
 <div class='donations-container'>
   <h1>Donaciones de <%= @user.full_name %></h1>
+  <%= will_paginate @users, class: 'pagination' %>
   <% @donations.each do |donation| %>
   <div class='donation'>
     <h3><%=link_to donation.project.title, project_path(donation.project) %><br>

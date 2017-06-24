@@ -6,6 +6,7 @@ class DonationsController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     @donations = Donation.where(user_id: params[:user_id])
+                         .paginate(page: params[:page], per_page: 6)
   end
 
   def create
