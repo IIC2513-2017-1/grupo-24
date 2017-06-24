@@ -12,6 +12,14 @@ class Project < ApplicationRecord
   validates_uniqueness_of :title, scope: [:user]
 
   before_create :unachieved
+  before_save :validate_vimeo, if: :video_url?
+
+  def validate_vimeo
+    video_vimeo_json = JSON.load(open('https://vimeo.com/api/oembed.json?url=' + video_url))
+    self.vimeo_id = video_vimeo_json['video_id']
+  rescue OpenURI::HTTPError
+    throw(:abort)
+  end
 
   def unachieved
     self.achieve = false

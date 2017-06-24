@@ -12,9 +12,14 @@ class ProjectsController < ApplicationController
                        .paginate(page: params[:page], per_page: 9)
     @mines = false
     if request.original_url.to_s.include?('users')
-      @projects = Project.where(user_id: params[:user_id])
-                         .paginate(page: params[:page], per_page: 6)
       @mines = current_user ? current_user.id.to_s == params[:user_id] : false
+      if @mines
+        @projects = Project.where(user_id: params[:user_id])
+                           .paginate(page: params[:page], per_page: 6)
+      else
+        @projects = Project.where(user_id: params[:user_id], publish: true)
+                           .paginate(page: params[:page], per_page: 6)
+      end
     end
   end
 
@@ -102,7 +107,7 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project)
           .permit(:goal, :title, :description, :user_id, :category_id, :image,
-                  :publish, :end_date)
+                  :publish, :end_date, :video_url)
           .merge(user_id: current_user.id, achieve: false)
 
   end

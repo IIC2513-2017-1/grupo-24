@@ -147,10 +147,9 @@ div.comments {
   word-wrap: break-word;
 }
 
-img.project-view {
-  height: 430px;
-  width: auto;
-  max-width: 95%;
+.project-view {
+  height: auto;
+  max-width: 100%;
   max-height: 330px;
 }
 

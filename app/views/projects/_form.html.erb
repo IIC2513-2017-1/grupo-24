@@ -12,7 +12,10 @@
   <% end %>
   <div class='project-data'>
     <div class="field">
-      <%= f.input :title, label: 'Título' %>
+      <%= f.input :title, label: 'Título', require: true %>
+    </div>
+    <div class="field">
+      <%= f.input :video_url, label: 'Link a vimeo' %>
     </div>
     <div class="field">
       <%= f.input :end_date, label: 'Fecha límite' %>
@@ -26,7 +29,6 @@
     <div class="field extra">
       <%= f.association :category, collection: @categories, prompt: 'Elige categoría' %>
     </div>
-    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
   </div>
   <div class='project-selectables'>
     <div class="field extra check">
@@ -41,5 +43,6 @@
         <%= image_tag project.image.exists? ? project.image.url : 'zelda.jpg', class: 'edit-image' %>
       </div>
     </div>
+    <%= f.button :submit, 'Guardar proyecto', class: "btn btn-success" %>
   </div>
 <% end %>
