@@ -66,6 +66,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_token
+    @user = User.find_by(id: params[:user_id])
+    @user.generate_token_and_save
+    respond_to do |format|
+      format.js { render layout: false }
+      format.html {head :no_content }
+    end
+  end
+
   def edit_password
     respond_to do |format|
       if @user.authenticate(params[:user][:old_password])

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   root 'home#main'
   resources :users do
+    get 'create_token', to: 'users#create_token', as: 'create_token'
     resources :projects, only: [:index]
     resources :donations, only: [:index]
   end
