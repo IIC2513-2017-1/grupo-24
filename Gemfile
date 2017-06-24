@@ -44,6 +44,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-rails'
 gem 'will_paginate'
+gem "jcrop-rails-v2"
+
 
 
 group :development, :test do
