@@ -16,7 +16,9 @@ function move(percentege) {
 }
 
 $(document).on("turbolinks:load", function() {
-  move($('#myBar').data('percentage'));
+  if($('#myBar').length>0){
+    move($('#myBar').data('percentage'));
+  }
 });
 
 $(document).on('turbolinks:load page:restore', function(){

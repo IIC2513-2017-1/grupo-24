@@ -5,7 +5,7 @@
   <p>
     <% if current_user%>
       <% if current_user != project.user %>
-      <%= form_for Rate.new, {controller: 'rates', action: "create" } do |f| %>
+      <%= form_for Rate.new, {controller: 'rates', action: "create", remote: true } do |f| %>
         ¿Te gustó? <%= f.number_field :grade, min: 0, max: 5, required: true %>
         <%= f.hidden_field(:project_id, value: project.id) %>
         <%= f.submit("¡Evaluar!", class: 'btn btn-stats') %>

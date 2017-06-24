@@ -8,8 +8,9 @@ class RatesController < ApplicationController
     if @rate
       respond_to do |format|
         if @rate.update(rate_params)
-          format.html { redirect_to @rate.project,
-                        notice: 'Evaluación actualizada' }
+          flash[:notice] = 'Evaluación actualizada'
+          format.js { render layout: false }
+          format.html {head :no_content }
         else
           format.html { redirect_to @rate.project,
                         error: 'No se pudo actualizar tu evaliacion' }
@@ -20,8 +21,9 @@ class RatesController < ApplicationController
       @rate = Rate.new(rate_params)
       respond_to do |format|
         if @rate.save
-          format.html { redirect_to project_path(@rate.project),
-                        notice: 'Evaluación registrada' }
+          flash[:notice] = 'Evaluación registrada'
+          format.js { render layout: false }
+          format.html {head :no_content }
         else
           format.html { redirect_to Project.find_by(id: params[:rate][:project_id]),
                         error: 'Debes autentificarte antes de realizar evaluacion' }
