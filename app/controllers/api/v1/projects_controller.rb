@@ -17,17 +17,27 @@ module Api::V1
       @project = Project.find(params[:id])
     end
 
-    def edit
+    def update
       @project = Project.find(params[:id])
-      @project.update(project_params)
+      if @project.user == @current_user
+        @project.update(project_params)
+      end
+    end
+
+    def destroy
+      @project = Project.find_by(id: params[:id])
+      @owner = false
+      @owner = @project.user == @current_user if @project
+      if @owner
+        @project.destroy
+      end
     end
 
     private
 
     def project_params
-      params.require(:project)
-      .permit(:goal, :title, :description, :category_id,
-      :image, :publish, :end_date)
+      params.require(:project).permit(:goal, :title, :description, :category_id,
+                                      :image, :publish, :end_date)
     end
 
   end

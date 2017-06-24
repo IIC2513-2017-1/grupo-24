@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-if @project.publish || @project.user == @current_user
+
+if @project.user == @current_user
   json.project do
     json.id @project.id
     json.title @project.title
@@ -7,6 +8,7 @@ if @project.publish || @project.user == @current_user
     json.description @project.description
     json.rating @project.rating
     json.category @project.category.name
+    json.url api_v1_project_url(@project)
     json.owner do
       json.email @project.user.email
       json.first_name @project.user.name
@@ -24,5 +26,5 @@ if @project.publish || @project.user == @current_user
   end
 else
   json.title @project.title
-  json.description 'Este proyecto no ha sido publicado y solo el dueño puede verlo'
+  json.description 'Este proyecto no es tuyo, solo el dueño puede actualizarlo'
 end

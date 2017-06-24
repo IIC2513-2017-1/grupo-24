@@ -9,7 +9,7 @@ json.user do
   json.projects do
     json.array! @user.projects do |project|
       json.id project.id
-      json.href api_v1_projects_url(project)
+      json.url api_v1_project_url(project)
       json.description project.description
     end
   end

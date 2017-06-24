@@ -12,7 +12,8 @@ li.admin-user {
 .slideshow-container {
   width: 100%;
   position: relative;
-  img {
+  .home-slider {
+    width: 100%;
     max-height: 600px;
   }
   //margin: auto;
