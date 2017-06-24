@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get '/', to: 'home#index'
+    get '/', to: 'projects#index'
     resources :categories, except: [:show]
     resources :users, except: [:new, :create, :show]
     resources :projects, except: [:show]
