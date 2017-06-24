@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Categorías</h1>
 <%= link_to 'Nueva Categoría', new_admin_category_path %>
+<%= will_paginate @categories, class: 'pagination' %>
 <table>
   <thead>
     <tr>

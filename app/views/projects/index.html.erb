@@ -1,5 +1,6 @@
-<h1>Proyectos</h1>
+<h1>Proyectos </h1>
 <h2>Activos: <%= @projects.where('end_date >= :today', today: Date.today).size %> </h2>
+<%= will_paginate @projects, class: 'pagination' %>
 <ol class="container">
   <% @projects.each do |project| %>
     <%= render partial: 'projects/preview', locals: { project: project, mines: @mines } %>

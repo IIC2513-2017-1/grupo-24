@@ -9,9 +9,11 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.where(publish: true).order(end_date: :desc, rating: :desc)
+                       .paginate(page: params[:page], per_page: 9)
     @mines = false
     if request.original_url.to_s.include?('users')
       @projects = Project.where(user_id: params[:user_id])
+                         .paginate(page: params[:page], per_page: 6)
       @mines = current_user ? current_user.id.to_s == params[:user_id] : false
     end
   end

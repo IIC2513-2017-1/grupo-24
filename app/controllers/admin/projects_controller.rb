@@ -8,7 +8,7 @@ module Admin
     # GET /project
     # GET /projects.json
     def index
-      @projects = Project.all
+      @projects = Project.paginate(page: params[:page], per_page: 25)
     end
 
     # GET /projects/1

@@ -16,6 +16,10 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
+  if($('.previous_page').length>0){
+    $('.previous_page').text('Anterior');
+    $('.next_page').text('Siguiente');
+  }
   $('.alert').fadeOut(4000);
   $('.alert').on("mouseover", function(e) {
     $(this).stop(true).fadeIn(0);

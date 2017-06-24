@@ -42,6 +42,7 @@ gem 'awesome_print'
 gem "paperclip", "~> 5.0.0"
 gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-rails'
+gem 'will_paginate'
 
 
 group :development, :test do

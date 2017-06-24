@@ -8,7 +8,7 @@ module Admin
     # GET /user
     # GET /usersusers.json
     def index
-      @users = User.all
+      @users = User.paginate(page: params[:page], per_page: 25)
     end
 
     # GET /users/1
