@@ -4,7 +4,7 @@
 <% end %>
 <div class="user-profile">
   <div class='avatar-display'>
-    <%= image_tag @user.avatar.exists? ? @user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %><br>
+    <%= image_tag @user.avatar.exists? ? @user.avatar.url(:cropped) : 'default-avatar.png', class: 'edit-avatar' %><br>
     <%= @user.full_name %>
   </div>
   <br>
@@ -40,8 +40,3 @@
   </div>
 
 </div>
-<script type="text/javascript">
-  $.getJSON('http://localhost3000/api/v1/projects').done(function(data) {
-    console.log(data)
-  })
-</script>

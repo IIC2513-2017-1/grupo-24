@@ -105,11 +105,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :password, :name, :last_name,
-                                   :username, :avatar, :password_confirmation)
+                                   :username, :password_confirmation, :crop_x,
+                                   :crop_y, :crop_w, :crop_h, :avatar)
     end
 
     def user_edit_params
-      params.require(:user).permit(:email, :name, :last_name, :username, :avatar)
+      params.require(:user).permit(:email, :name, :last_name, :username, :crop_x,
+                                   :crop_y, :crop_w, :crop_h, :avatar)
     end
 
     def check_current

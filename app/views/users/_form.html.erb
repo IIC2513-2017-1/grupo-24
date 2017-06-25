@@ -34,7 +34,9 @@
       <div class="field">
         <%= f.input :last_name, label: 'Apellidos' %>
       </div>
-
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+        <%= f.hidden_field attribute, id: attribute %>
+      <% end %>
       <%= f.button :submit, 'Guardar', class: "btn" %>
     </div>
     <div class='avatar-display'>
@@ -43,7 +45,12 @@
         <span class="btn" style="width:100%;">
           <%= f.file_field :avatar %>
         </span><br>
-        <%= image_tag user.avatar.exists? ? user.avatar.url : 'default-avatar.png', class: 'edit-avatar' %>
+        <% if user.avatar.exists? %>
+        <img src="<%= user.avatar.url(:cropped) %>" class="edit-image" id=cropbox style="width:150px;height:auto",
+        data-full="<%= user.avatar.url(:original)%>", data-width="<%=Paperclip::Geometry.from_file(user.avatar)%>">
+        <% else %>
+        <img src="<%= asset_path('default-avatar.png')%>" class="edit-image" id=cropbox>
+        <% end %>
       </div>
     </div>
   </div>

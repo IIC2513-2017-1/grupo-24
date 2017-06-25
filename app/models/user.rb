@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :rates, dependent: :nullify
 
   has_secure_password
-  has_attached_file :avatar, styles: { original: {} }
+  has_attached_file :avatar, styles: { original: {},
+                                       cropped: { processors: [:cropper] } }
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
@@ -15,6 +16,8 @@ class User < ApplicationRecord
   validates :username, :email, presence: true, uniqueness: true
   validates :password, presence: {on: :create}, confirmation: true,
             allow_blank: true, length: { minimum: 4, maximum: 72 }
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   def full_name
     return "#{name} #{last_name}" if name && last_name
