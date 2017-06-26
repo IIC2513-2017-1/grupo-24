@@ -5,16 +5,8 @@
 </div>
 <div class="bottom-container">
   <div id="comment-list" class='comments'>
-  <%= render partial: 'comments/preview', locals: {project: @project} %>
-  <% if current_user %>
-    <div class="comments-form">
-      <%= form_for Comment.new, {controller: 'comments', action: "create", remote: true} do |f| %>
-        <%= f.text_field(:content, requiered: true, class: 'comment-text') %>
-        <%= f.hidden_field(:project_id, value: @project.id) %>
-        <%= f.submit("Comentar", class: 'btn btn-publish') %>
-      <% end %>
-    </div>
-  <% end %>
+  <% project = @project %>
+  <%= render partial: 'comments/preview', locals: {project: project} %>
   </div>
 
   <div class='twitter'>
