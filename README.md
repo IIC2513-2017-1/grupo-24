@@ -7,6 +7,13 @@
 * Arturo Bulnes
 * Juan Ignacio Cortés
 
+#### API's USED
+* Vimeo: for videos url validation
+* Twitter: for getting related tweets for projects
+
+#### all-for-one
+* For getting your own token for this app you must have an user and ask for it in your profile
+
 #### Database creation
 * Open postgres and create a role:
  * CREATE ROLE all_4_one WITH CREATEDB LOGIN PASSWORD 'all4onepassword';
