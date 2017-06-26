@@ -9,7 +9,7 @@ class Project < ApplicationRecord
   has_many :rates, dependent: :destroy
 
   validates :title, :description, :goal, :end_date, presence: true
-  validates :hashtag, format: { with: /\A^[\#]+[a-zA-Z0-9]*$\z/i }
+  validate :hashtag_validation
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_uniqueness_of :title, scope: [:user]
 
@@ -17,6 +17,16 @@ class Project < ApplicationRecord
   before_save :validate_vimeo, if: :video_url?
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  def hashtag_validation
+    if hashtag.present?
+      hashtag.split(' ').each do |tag|
+        if (tag =~ /\A^[\#]+[a-zA-Z0-9]*$\z/i).nil?
+          errors.add(:hashtag, "Formato inválido, debe seguir el formato \#hashtag")
+        end
+      end
+    end
+  end
 
   def validate_vimeo
     video_vimeo_json = JSON.load(open('https://vimeo.com/api/oembed.json?url=' + video_url))
