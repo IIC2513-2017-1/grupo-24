@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
     unless @project.publish || current_user == @project.user
       flash[:warning] = 'Proyecto no disponible'
       redirect_to root_path
+      @tweets = @project.tweets
     end
   end
 

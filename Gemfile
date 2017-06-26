@@ -45,7 +45,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-rails'
 gem 'will_paginate'
 gem "jcrop-rails-v2"
-
+gem 'httparty'
 
 
 group :development, :test do
