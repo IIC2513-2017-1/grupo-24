@@ -38,13 +38,9 @@ class Project < ApplicationRecord
     }
     r = HTTParty.post(url, body: body, headers: headers)
     bearer_token = JSON.parse(r.body)['access_token']
-    puts self.title
     api_auth_header = {"Authorization" => "Bearer #{bearer_token}"}
     url = "https://api.twitter.com/1.1/search/tweets.json?q=#{self.hashtag.gsub('#', '%23').gsub(' ', '+')}&result_type=recent"
-    puts url
     JSON.parse(HTTParty.get(url, headers: api_auth_header).body)
-  rescue OpenURI::HTTPError
-    [{status: 'Failed'}]
   end
 
   def unachieved
