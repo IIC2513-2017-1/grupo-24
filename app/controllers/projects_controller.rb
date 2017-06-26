@@ -108,7 +108,7 @@ class ProjectsController < ApplicationController
     params.require(:project)
           .permit(:goal, :title, :description, :user_id, :category_id,
                   :publish, :end_date, :video_url, :crop_x, :crop_y, :crop_h,
-                  :crop_w, :image,)
+                  :crop_w, :image, :hashtag)
           .merge(user_id: current_user.id, achieve: false)
 
   end
