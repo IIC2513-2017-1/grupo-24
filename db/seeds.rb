@@ -61,7 +61,7 @@ Category.find_or_create_by(name: 'Armas')
                  category_id: category.id,
                  publish: [true, false].sample,
                  rating: 0,
-                 end_date: Date.today + rand(10).days
+                 end_date: Date.today + rand(10).days,
                  hashtag: '#crowdfunding'
                  )
 end
