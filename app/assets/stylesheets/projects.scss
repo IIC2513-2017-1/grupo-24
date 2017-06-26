@@ -21,7 +21,7 @@
     width: 40%;
     display: inline-block;
     vertical-align: top;
-    
+
   }
 
   div.field.half{
@@ -131,6 +131,43 @@
   padding: 20px;
   text-align: center;
 }
+.bottom-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+}
+
+.comments {
+    width: 50%;
+    margin: 30px;
+}
+
+.twitter {
+  width: 50%;
+  margin: 30px;
+  margin-left: 50px;
+}
+
+div.related-tweets {
+  height: 400px;
+  width: auto;
+  padding-right: 15px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url(/assets/twitter.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+p.tweet-content {
+  width:100%;
+  display:table;
+  span.tweet-owner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 
 div.comments {
   border-top: black thin solid;
