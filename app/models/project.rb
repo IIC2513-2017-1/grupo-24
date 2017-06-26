@@ -9,6 +9,7 @@ class Project < ApplicationRecord
   has_many :rates, dependent: :destroy
 
   validates :title, :description, :goal, :end_date, presence: true
+  validates :hashtag, format: { with: /\A^[\#]+[a-zA-Z0-9]*$\z/i }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_uniqueness_of :title, scope: [:user]
 
