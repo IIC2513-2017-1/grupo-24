@@ -51,7 +51,8 @@ Category.find_or_create_by(name: 'Armas')
 # Projects
 images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg',
 '9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg',]
-50.times do
+days = [-6, -3, -1, 2, 4, 5,1]
+80.times do
   image_path = "#{Rails.root}/app/assets/images/#{images.sample}"
   image_file = File.new(image_path)
   offset = rand(User.count)
@@ -60,12 +61,12 @@ images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg',
   category = Category.offset(offset2).first
   Project.create(goal: rand*Random.rand(100000),
                  title: Faker::Lorem.sentence,
-                 description: Faker::Lorem.paragraph(20),
+                 description: Faker::Lorem.paragraph(30),
                  user_id: user.id,
                  category_id: category.id,
                  publish: [true, false].sample,
                  rating: 0,
-                 end_date: Date.today + rand(10).days,
+                 end_date: Date.today + days.sample.days,
                  hashtag: "##{category.name}",
                  image: ActionDispatch::Http::UploadedFile.new(
                     filename: File.basename(image_file),
@@ -108,8 +109,9 @@ end
   user = User.offset(offset).first
   offset2 = rand(Project.count)
   project = Project.offset(offset2).first
-  if project.publish
-    Rate.find_or_create_by(user_id: user.id,
+  rate = Rate.find_by(user_id: user.id, project_id: project.id)
+  if project.publish && !rate
+    Rate.create(user_id: user.id,
                 project_id: project.id,
                 grade: [0,1,2,3,4,5].sample)
   end

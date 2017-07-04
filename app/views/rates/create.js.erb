@@ -1,5 +1,5 @@
 $('#flashes').html("<%= escape_javascript render partial: 'layouts/flashes' %>");
-$('#category-rate').text('<%= "#{@rate.project.category.name} - #{@rate.project.rating}" %>');
+$('#category-rate').text('<%= "#{@rate.project.category.name} - #{%q<%.2f> % @rate.project.rating}" %>');
 $('.alert').fadeOut(4000);
 $('.alert').on("mouseover", function(e) {
   $(this).stop(true).fadeIn(0);

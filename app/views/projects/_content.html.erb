@@ -8,7 +8,7 @@
   <% end %>
   <h1> <%= project.title %> </h1>
   <p>
-    <h3 id='category-rate'> <%= "#{project.category.name}  - #{project.rating}" %> </h3>
+    <h3 id='category-rate'> <%= "#{project.category.name}  - #{'%.2f' % project.rating}" %> </h3>
     <%= project.description %><br>
   </p>
 </div>

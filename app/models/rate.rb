@@ -10,7 +10,7 @@ class Rate < ApplicationRecord
 
   def update_project
     rates = Rate.where(project_id: project.id)
-    new_rating = (rates.sum(&:grade))/(rates.size)
+    new_rating = (rates.sum(&:grade).to_f)/(rates.size.to_f)
     project.update(rating: new_rating)
   end
 end
