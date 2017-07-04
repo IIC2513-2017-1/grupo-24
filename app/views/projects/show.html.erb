@@ -13,7 +13,7 @@
     <% if @project.hashtag.present? %>
       <h2>Tweets relacionados</h2>
       <div class="related-tweets">
-      <% @project.tweets.first.second.first(8).each do |tweet| %>
+      <% @project.tweets.first.second.first(15).each do |tweet| %>
         <div class="tweet">
           <p class='tweet-content'><span class='tweet-owner'><%= image_tag tweet['user']['profile_image_url'] %></span>
           <strong><%= tweet['user']['name'] %>:</strong> <%= tweet['text'] %> </p>

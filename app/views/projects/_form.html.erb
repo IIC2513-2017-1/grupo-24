@@ -36,7 +36,7 @@
   <div class='project-selectables'>
     <div class="field extra check">
       <%= f.input :publish, label: '¿Publicar?' %>
-    </div>
+    </div><br>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
       <%= f.hidden_field attribute, id: attribute %>
     <% end %>

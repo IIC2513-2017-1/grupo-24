@@ -25,9 +25,9 @@ User.find_or_create_by(email: 'abulnes1@uc.cl', password: '123123',
                       username: 'abulnes1', name: 'Arturo',
                       last_name: 'Bulnes Ruiz', admin: true)
 
-User.find_or_create_by(email: 'user@user.com', password: '123123',
-                      username: 'user', name: 'Usuario',
-                      last_name: 'Normal', admin: false)
+User.find_or_create_by(email: 'juan.cv94@gmail.com', password: '123123',
+                      username: 'juancv94', name: 'Juan Ignacio',
+                      last_name: 'Cortes', admin: false)
 # Usuarios desconocidos para poblar el enviroment
 25.times do
   password = Faker::Internet.password(8)
@@ -66,7 +66,7 @@ images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg',
                  publish: [true, false].sample,
                  rating: 0,
                  end_date: Date.today + rand(10).days,
-                 hashtag: '#crowdfunding',
+                 hashtag: "##{category.name}",
                  image: ActionDispatch::Http::UploadedFile.new(
                     filename: File.basename(image_file),
                     tempfile: image_file,
@@ -103,7 +103,7 @@ end
 end
 
 # Rates
-100.times do
+60.times do
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Project.count)

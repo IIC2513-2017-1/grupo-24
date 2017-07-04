@@ -1,8 +1,8 @@
 <div class="rcorners1 <%= expired?(project)%>">
   <%= link_to 'X', project_path(project), method: :delete, data: { confirm: '¿Estas seguro?' }, class: 'btn-delete' if mines%>
+  <h3><%= project.category.name %></h3>
   <%= image_tag project.image.exists? ? project.image.url : 'zelda.jpg' %>
   <h3 class="project-title"><%=link_to project.title, mines ? edit_project_path(project) : project_path(project) %>
-    <br><%= project.category.name %>
   </h3>
   <h4>
     <%= truncate(project.description, length: 75, omission: '...') %>
