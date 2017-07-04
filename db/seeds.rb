@@ -50,7 +50,8 @@ Category.find_or_create_by(name: 'Armas')
 
 # Projects
 images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg',
-'9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg',]
+'9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg',
+'18.jpg', '19.jpg', '20.jpg', '21.jpg']
 days = [-6, -3, -1, 2, 4, 5,1]
 80.times do
   image_path = "#{Rails.root}/app/assets/images/#{images.sample}"
