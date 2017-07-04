@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'El proyecto fue correctamente actualizado.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -91,7 +91,7 @@ class ProjectsController < ApplicationController
     url = @project.user == current_user ? projects_path : user_projects_path(current_user)
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to url, notice: 'El proyecto fue eliminado.' }
       format.json { head :no_content }
     end
   end
