@@ -49,20 +49,30 @@ Category.find_or_create_by(name: 'Armaduras')
 Category.find_or_create_by(name: 'Armas')
 
 # Projects
-80.times do
+images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg',
+'9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg',]
+50.times do
+  image_path = "#{Rails.root}/app/assets/images/#{images.sample}"
+  image_file = File.new(image_path)
   offset = rand(User.count)
   user = User.offset(offset).first
   offset2 = rand(Category.count)
   category = Category.offset(offset2).first
   Project.create(goal: rand*Random.rand(100000),
                  title: Faker::Lorem.sentence,
-                 description: Faker::Lorem.paragraph(2),
+                 description: Faker::Lorem.paragraph(20),
                  user_id: user.id,
                  category_id: category.id,
                  publish: [true, false].sample,
                  rating: 0,
                  end_date: Date.today + rand(10).days,
-                 hashtag: '#crowdfunding'
+                 hashtag: '#crowdfunding',
+                 image: ActionDispatch::Http::UploadedFile.new(
+                    filename: File.basename(image_file),
+                    tempfile: image_file,
+                    # detect the image's mime type with MIME if you can't provide it yourself.
+                    type: MIME::Types.type_for(image_path).first.content_type
+                  )
                  )
 end
 

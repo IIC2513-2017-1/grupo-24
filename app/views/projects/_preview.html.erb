@@ -5,7 +5,7 @@
     <br><%= project.category.name %>
   </h3>
   <h4>
-    <%= truncate(project.description, length: 150, omission: '...') %>
+    <%= truncate(project.description, length: 75, omission: '...') %>
   </h4>
   <span class="author-info">
     <h3 class="text-expired"><big><%= 'EXPIRADO' if expired?(project) == 'expired' %></big></h3>
