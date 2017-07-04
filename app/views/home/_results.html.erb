@@ -1,7 +1,7 @@
 <% if projects.size > 0 %>
   <h3> Coincidencias en contenido: <%= projects.size %> </h3>
   <ol class="container">
-    <% projects.each do |project| %>
+    <% projects.order(end_date: :desc, rating: :desc).each do |project| %>
       <%= render partial: 'projects/preview', locals: { project: project, mines: false } %>
     <% end %>
   </ol>
