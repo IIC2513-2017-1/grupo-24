@@ -51,6 +51,8 @@ class Project < ApplicationRecord
     api_auth_header = {"Authorization" => "Bearer #{bearer_token}"}
     url = "https://api.twitter.com/1.1/search/tweets.json?q=#{self.hashtag.gsub('#', '%23').gsub(' ', '+')}&result_type=recent"
     JSON.parse(HTTParty.get(url, headers: api_auth_header).body)
+  rescue SocketError => e
+    []
   end
 
   def unachieved

@@ -10,7 +10,7 @@
   </div>
 
   <div class='twitter'>
-    <% if @project.hashtag.present? %>
+    <% if @project.hashtag.present? && !@project.tweets.length.zero? %>
       <h2>Tweets relacionados</h2>
       <div class="related-tweets">
       <% @project.tweets.first.second.first(15).each do |tweet| %>
